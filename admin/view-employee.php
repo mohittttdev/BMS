@@ -15,32 +15,45 @@ include("../backend/connection.php");
 
 
 
-// Fetch Sales
+
+if(!isset($_GET['id'])){
+
+    header("Location: employees.php");
+    exit();
+
+}
 
 
-$sales = mysqli_query(
+
+$id = $_GET['id'];
+
+
+
+
+// Fetch Employee
+
+$query = mysqli_query(
 
     $connection,
 
-    "SELECT 
+    "SELECT * FROM employees
 
-    sales.*,
-
-    customers.name AS customer_name
-
-
-    FROM sales
-
-
-    LEFT JOIN customers
-
-
-    ON sales.customer_id = customers.id
-
-
-    ORDER BY sales.id DESC"
+     WHERE id='$id'"
 
 );
+
+
+
+$employee = mysqli_fetch_assoc($query);
+
+
+
+if(!$employee){
+
+    echo "Employee Not Found";
+    exit();
+
+}
 
 
 ?>
@@ -60,11 +73,12 @@ $sales = mysqli_query(
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-<title>Sales | BMS</title>
+<title>View Employee | BMS</title>
 
 
 
-<link rel="stylesheet" href="asset/css/sales.css">
+
+<link rel="stylesheet" href="asset/css/employees.css">
 
 
 
@@ -81,12 +95,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
 
 <div class="container">
-
-
-
-
-<!-- Sidebar -->
-
+    <!-- Sidebar -->
 
 <aside class="sidebar">
 
@@ -124,7 +133,6 @@ Dashboard
 
 
 
-
 <li>
 
 <a href="customers.php">
@@ -136,7 +144,6 @@ Customers
 </a>
 
 </li>
-
 
 
 
@@ -156,7 +163,6 @@ Products
 
 
 
-
 <li>
 
 <a href="suppliers.php">
@@ -168,7 +174,6 @@ Suppliers
 </a>
 
 </li>
-
 
 
 
@@ -188,8 +193,7 @@ Purchases
 
 
 
-
-<li class="active">
+<li>
 
 <a href="sales.php">
 
@@ -200,7 +204,6 @@ Sales
 </a>
 
 </li>
-
 
 
 
@@ -220,6 +223,20 @@ Inventory
 
 
 
+<li class="active">
+
+<a href="employees.php">
+
+<i class="fa-solid fa-user-tie"></i>
+
+Employees
+
+</a>
+
+</li>
+
+
+
 
 <li>
 
@@ -233,6 +250,20 @@ Reports
 
 </li>
 
+
+
+
+<li>
+
+<a href="settings.php">
+
+<i class="fa-solid fa-gear"></i>
+
+Settings
+
+</a>
+
+</li>
 
 
 
@@ -250,6 +281,7 @@ Logout
 </li>
 
 
+
 </ul>
 
 
@@ -261,10 +293,14 @@ Logout
 
 
 
+
+
 <!-- Main -->
 
-
 <main class="main">
+
+
+
 
 
 <header class="topbar">
@@ -272,9 +308,10 @@ Logout
 
 <h2>
 
-Sales Management
+Employee Details
 
 </h2>
+
 
 
 
@@ -295,22 +332,51 @@ Sales Management
 </div>
 
 
+</header>
 
-</header><section class="page-header">
 
 
-<div>
+
+
+
+
+
+
+<!-- Employee Profile -->
+
+
+<section class="profile-card">
+
+
+
+
+
+<div class="profile-icon">
+
+
+<i class="fa-solid fa-user-tie"></i>
+
+
+</div>
+
+
+
+
+
+
+<div class="employee-title">
+
 
 <h1>
 
-Sales List
+<?php echo $employee['name']; ?>
 
 </h1>
 
 
 <p>
 
-Manage all sales transactions
+Employee Profile
 
 </p>
 
@@ -321,300 +387,262 @@ Manage all sales transactions
 
 
 
-<a href="add-sale.php" class="add-btn">
-
-
-<i class="fa-solid fa-plus"></i>
-
-
-Create Sale
-
-
-</a>
-
 
 
 </section>
+<!-- Employee Details -->
 
+<section class="details-card">
 
 
+<h2>
 
+Employee Information
 
+</h2>
 
 
 
 
-<!-- Sales Table -->
 
+<div class="details-grid">
 
-<section class="table-card">
 
 
-<table>
+<div>
 
+<h4>
+Name
+</h4>
 
-<thead>
+<p>
 
+<?php echo $employee['name']; ?>
 
-<tr>
+</p>
 
+</div>
 
-<th>
-Invoice No
-</th>
 
 
-<th>
-Customer
-</th>
 
 
-<th>
-Date
-</th>
+<div>
 
+<h4>
+Email
+</h4>
 
-<th>
-Amount
-</th>
+<p>
 
+<?php echo $employee['email']; ?>
 
-<th>
-Paid
-</th>
+</p>
 
+</div>
 
-<th>
-Due
-</th>
 
 
-<th>
-Status
-</th>
 
 
-<th>
-Action
-</th>
 
 
-</tr>
+<div>
 
+<h4>
+Phone
+</h4>
 
-</thead>
+<p>
 
+<?php echo $employee['phone']; ?>
 
+</p>
 
+</div>
 
 
 
-<tbody>
 
 
 
 
-<?php while($row = mysqli_fetch_assoc($sales)){ ?>
+<div>
 
+<h4>
+Salary
+</h4>
 
+<p>
 
-<tr>
+₹ <?php echo number_format(
+$employee['salary'],
+2
+); ?>
 
+</p>
 
+</div>
 
 
-<td>
 
-<?php echo $row['invoice_no']; ?>
 
-<a href="../backend/invoice/generate-invoice.php?id=<?php echo $row['id']; ?>" target="_blank" class="btn btn-danger">
 
-<i class="fa-solid fa-file-pdf"></i>
 
-Invoice
 
-</a>
-</td>
+<div>
 
+<h4>
+Joining Date
+</h4>
 
-
-
-
-
-<td>
-
-<?php echo $row['customer_name']; ?>
-
-</td>
-
-
-
-
-
-
-
-<td>
+<p>
 
 <?php echo date(
-
 "d M Y",
-
-strtotime($row['sale_date'])
-
+strtotime($employee['joining_date'])
 ); ?>
 
-</td>
+</p>
 
+</div>
 
 
 
 
 
 
-<td>
 
-₹ <?php echo number_format(
+<div>
 
-$row['total_amount'],
+<h4>
+Status
+</h4>
 
-2
 
-); ?>
+<p>
 
-</td>
 
+<?php
 
 
+if($employee['status']=="Active"){
 
 
+echo '<span class="badge success">
+Active
+</span>';
 
 
-<td>
 
-₹ <?php echo number_format(
+}else{
 
-$row['paid_amount'],
 
-2
+echo '<span class="badge danger">
+Inactive
+</span>';
 
-); ?>
 
-</td>
 
+}
 
 
 
+?>
 
 
+</p>
 
-<td>
 
-₹ <?php echo number_format(
+</div>
 
-$row['due_amount'],
 
-2
 
-); ?>
 
-</td>
 
 
+<div class="full">
 
 
+<h4>
+Address
+</h4>
 
 
+<p>
 
-<td>
+<?php echo $employee['address']; ?>
 
+</p>
 
 
-<span class="badge 
-<?php echo strtolower($row['status']); ?>">
+</div>
 
 
 
-<?php echo $row['status']; ?>
 
 
 
-</span>
-
-
-
-</td>
-
-
-
-
-
-
-
-<td>
-
-
-
-
-
-<a href="view-sale.php?id=<?php echo $row['id']; ?>"
-class="view-btn">
-
-
-<i class="fa-solid fa-eye"></i>
-
-
-</a>
-
-
-
-
-
-
-<a href="editsale.php?id=<?php echo $row['id']; ?>" class="edit-btn">
-<i class="fa-solid fa-pen"></i>
-</a>
-
-<a href="../backend/sale/delete.php?id=<?php echo $row['id']; ?>"
-onclick="return confirm('Delete Sale?')"
-class="delete-btn">
-
-
-<i class="fa-solid fa-trash"></i>
-
-
-</a>
-
-
-
-
-
-</td>
-
-
-
-
-
-
-</tr>
-
-
-
-
-
-
-<?php } ?>
-
-
-
-
-
-</tbody>
-
-
-</table>
+</div>
 
 
 </section>
+
+
+
+
+
+
+
+
+
+<!-- Action Buttons -->
+
+
+<div class="action-buttons">
+
+
+<a href="edit-employee.php?id=<?php echo $employee['id']; ?>"
+class="edit-btn">
+
+
+<i class="fa-solid fa-pen"></i>
+
+
+Edit Employee
+
+
+</a>
+
+
+
+
+
+
+<a href="employees.php"
+class="cancel-btn">
+
+
+<i class="fa-solid fa-arrow-left"></i>
+
+
+Back
+
+
+</a>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
 <!-- Footer -->
 
 
@@ -635,6 +663,8 @@ Developed with ❤️ PHP & MySQL
 
 
 </footer>
+
+
 
 
 

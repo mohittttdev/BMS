@@ -291,3 +291,49 @@ if (chartCanvas) {
     });
 
 }
+
+const ctx = document.getElementById("salesChart");
+
+if(ctx){
+
+new Chart(ctx,{
+
+type:"line",
+
+data:{
+
+labels: chartMonths,
+
+datasets:[{
+
+label:"Sales",
+
+data: chartTotals,
+
+borderWidth:3,
+
+fill:true,
+
+tension:.4
+
+}]
+
+},
+
+options:{
+
+responsive:true,
+
+plugins:{
+
+legend:{
+display:false
+}
+
+}
+
+}
+
+});
+
+}
