@@ -9,7 +9,7 @@ if (!isset($_SESSION['admin_id'])) {
 include("../backend/connection.php");
 
 /* Fetch Customers */
-$query = mysqli_query($connection, "SELECT * FROM customers ORDER BY id DESC");
+$query = mysqli_query($connection, "SELECT * FROM customer ORDER BY id DESC");
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +22,7 @@ $query = mysqli_query($connection, "SELECT * FROM customers ORDER BY id DESC");
 
     <title>Customers | BMS</title>
 
-    <link rel="stylesheet" href="asset/css/customers.css">
+ <link rel="stylesheet" href="asset/css/customer.css">
 
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -57,7 +57,7 @@ $query = mysqli_query($connection, "SELECT * FROM customers ORDER BY id DESC");
             </li>
 
             <li class="active">
-                <a href="customers.php">
+                <a href="customer.php">
                     <i class="fa-solid fa-users"></i>
                     Customers
                 </a>
@@ -371,7 +371,7 @@ if(mysqli_num_rows($query) > 0){
 
 </div>
 
-<script src="asset/js/customers.js"></script>
+<script src="asset/js/customer.js"></script>
 
 </body>
 </html>

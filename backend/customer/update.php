@@ -52,7 +52,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $check = mysqli_query(
         $connection,
-        "SELECT id FROM customers 
+        "SELECT id FROM customer
          WHERE (email='$email' OR phone='$phone')
          AND id!='$id'"
     );
@@ -128,7 +128,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $_SESSION['success']="Customer updated successfully.";
 
 
-        header("Location: ../../admin/customers.php");
+        header("Location: ../../admin/customer.php");
 
         exit();
 
@@ -152,7 +152,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }else{
 
 
-    header("Location: ../../admin/customers.php");
+    header("Location: ../../admin/customer.php");
 
     exit();
 

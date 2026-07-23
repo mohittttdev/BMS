@@ -16,7 +16,7 @@ include("../backend/connection.php");
 
 if(!isset($_GET['id'])){
 
-    header("Location: customers.php");
+    header("Location: customer.php");
     exit();
 
 }
@@ -29,14 +29,14 @@ $id = $_GET['id'];
 
 $query = mysqli_query(
     $connection,
-    "SELECT * FROM customers WHERE id='$id'"
+    "SELECT * FROM customer WHERE id='$id'"
 );
 
 
 
 if(mysqli_num_rows($query)==0){
 
-    header("Location: customers.php");
+    header("Location: customer.php");
     exit();
 
 }
@@ -63,7 +63,7 @@ $customer = mysqli_fetch_assoc($query);
 <title>View Customer | BMS</title>
 
 
-<link rel="stylesheet" href="asset/css/view-customer.css">
+<link rel="stylesheet" href="../asset/css/viewcustomer.css">
 
 
 <link rel="stylesheet"
@@ -308,7 +308,7 @@ Edit
 
 
 
-<a href="customers.php"
+<a href="customer.php"
 class="back-btn">
 
 

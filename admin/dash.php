@@ -1,19 +1,19 @@
 <?php
-// session_start();
+session_start();
 
-// if (!isset($_SESSION['admin_id'])) {
-//     header("Location: login.php");
-//     exit();
-// }
+if (!isset($_SESSION['admin_id'])) {
+    header("Location: login.php");
+    exit();
+}
 
 include("../backend/connection.php");
 
 /* Dashboard Counts */
 
-// $customer = mysqli_fetch_assoc(mysqli_query($connection,"SELECT COUNT(*) AS total FROM customers"));
-// $product  = mysqli_fetch_assoc(mysqli_query($connection,"SELECT COUNT(*) AS total FROM products"));
-// $sales    = mysqli_fetch_assoc(mysqli_query($connection,"SELECT COUNT(*) AS total FROM sales"));
-// $employee = mysqli_fetch_assoc(mysqli_query($connection,"SELECT COUNT(*) AS total FROM employees"));
+$customer = mysqli_fetch_assoc(mysqli_query($connection,"SELECT COUNT(*) AS total FROM customer"));
+$product  = mysqli_fetch_assoc(mysqli_query($connection,"SELECT COUNT(*) AS total FROM products"));
+$sales    = mysqli_fetch_assoc(mysqli_query($connection,"SELECT COUNT(*) AS total FROM sales"));
+$employee = mysqli_fetch_assoc(mysqli_query($connection,"SELECT COUNT(*) AS total FROM employees"));
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +66,7 @@ Dashboard
 </li>
 
 <li>
-<a href="customers.php">
+<a href="customer.php">
 <i class="fa-solid fa-users"></i>
 Customers
 </a>
@@ -489,7 +489,7 @@ Manage your Business from one dashboard.
 
 <div class="quick-actions">
 
-    <a href="customers.php" class="action-card">
+    <a href="customer.php" class="action-card">
 
         <i class="fa-solid fa-users"></i>
 

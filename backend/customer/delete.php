@@ -27,7 +27,7 @@ if(isset($_GET['id'])){
 
         $_SESSION['error']="Customer not found.";
 
-        header("Location: ../../admin/customers.php");
+        header("Location: ../../admin/customer.php");
 
         exit();
 
@@ -60,7 +60,7 @@ if(isset($_GET['id'])){
 
 
 
-    header("Location: ../../admin/customers.php");
+    header("Location: ../../admin/customer.php");
 
     exit();
 
@@ -71,7 +71,7 @@ if(isset($_GET['id'])){
 
     $_SESSION['error']="Invalid request.";
 
-    header("Location: ../../admin/customers.php");
+    header("Location: ../../admin/customer.php");
 
     exit();
 

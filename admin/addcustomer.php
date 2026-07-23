@@ -52,7 +52,7 @@ include("../backend/connection.php");
             </li>
 
             <li class="active">
-                <a href="customers.php">
+                <a href="customer.php">
                     <i class="fa-solid fa-users"></i>
                     Customers
                 </a>
@@ -459,7 +459,7 @@ include("../backend/connection.php");
 
                     </button>
 
-                    <a href="customers.php" class="back-btn">
+                    <a href="customer.php" class="back-btn">
 
                         <i class="fa-solid fa-arrow-left"></i>
 

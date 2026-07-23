@@ -87,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $_SESSION['success'] = "Customer added successfully.";
 
-        header("Location: ../../admin/customers.php");
+        header("Location: ../../admin/customer.php");
         exit();
 
     } else {
@@ -101,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 } else {
 
-    header("Location: ../../admin/customers.php");
+    header("Location: ../../admin/customer.php");
     exit();
 
 }
