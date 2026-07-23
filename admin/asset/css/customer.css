@@ -1,0 +1,354 @@
+/*=========================================
+    BMS - Customers Page
+=========================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+:root{
+
+    --primary:#2563eb;
+    --primary-dark:#1d4ed8;
+    --secondary:#06b6d4;
+
+    --success:#22c55e;
+    --danger:#ef4444;
+    --warning:#f59e0b;
+
+    --bg:#f4f7fb;
+    --white:#ffffff;
+
+    --text:#1f2937;
+    --gray:#6b7280;
+
+    --border:#e5e7eb;
+
+    --shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+body{
+
+    background:var(--bg);
+    color:var(--text);
+
+}
+
+/*=========================================
+        Layout
+=========================================*/
+
+.container{
+
+    display:flex;
+    min-height:100vh;
+
+}
+
+.main{
+
+    flex:1;
+    margin-left:260px;
+    padding:30px;
+
+}
+
+/*=========================================
+        Sidebar
+=========================================*/
+
+.sidebar{
+
+    position:fixed;
+
+    left:0;
+    top:0;
+
+    width:260px;
+    height:100vh;
+
+    background:#0f172a;
+
+    color:#fff;
+
+    overflow:auto;
+
+    box-shadow:5px 0 20px rgba(0,0,0,.18);
+
+}
+
+.logo{
+
+    height:80px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:12px;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.logo i{
+
+    font-size:28px;
+
+    color:#3b82f6;
+
+}
+
+.logo h2{
+
+    font-size:24px;
+
+    font-weight:700;
+
+}
+
+.sidebar ul{
+
+    list-style:none;
+
+    padding:20px 0;
+
+}
+
+.sidebar ul li{
+
+    margin:8px 15px;
+
+}
+
+.sidebar ul li a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:14px 18px;
+
+    text-decoration:none;
+
+    color:#cbd5e1;
+
+    border-radius:12px;
+
+    transition:.35s;
+
+}
+
+.sidebar ul li a:hover{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
+
+.sidebar ul li.active a{
+
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+
+    color:#fff;
+
+}
+
+.sidebar ul li i{
+
+    width:20px;
+
+    text-align:center;
+
+}
+
+/*=========================================
+        Topbar
+=========================================*/
+
+.topbar{
+
+    background:var(--white);
+
+    padding:20px 25px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:25px;
+
+}
+
+.topbar h2{
+
+    font-size:28px;
+
+    font-weight:700;
+
+}
+
+.top-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+/*=========================================
+        Search Box
+=========================================*/
+
+.search-box{
+
+    position:relative;
+
+}
+
+.search-box input{
+
+    width:260px;
+
+    padding:12px 18px 12px 45px;
+
+    border:1px solid var(--border);
+
+    border-radius:40px;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+.search-box input:focus{
+
+    border-color:var(--primary);
+
+}
+
+.search-box i{
+
+    position:absolute;
+
+    left:18px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:var(--gray);
+
+}
+
+/*=========================================
+        Profile
+=========================================*/
+
+.profile{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-weight:600;
+
+}
+
+.profile i{
+
+    font-size:38px;
+
+    color:var(--primary);
+
+}
+
+/*=========================================
+        Page Header
+=========================================*/
+
+.page-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+.page-header h1{
+
+    font-size:34px;
+
+    margin-bottom:5px;
+
+}
+
+.page-header p{
+
+    color:var(--gray);
+
+}
+
+/*=========================================
+        Add Button
+=========================================*/
+
+.add-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+
+    color:#fff;
+
+    padding:14px 22px;
+
+    text-decoration:none;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+    box-shadow:var(--shadow);
+
+}
+
+.add-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 30px rgba(37,99,235,.25);
+
+}
