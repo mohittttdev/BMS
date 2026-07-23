@@ -38,7 +38,7 @@ $productQuery = mysqli_query(
 <title>Products | BMS</title>
 
 
-<link rel="stylesheet" href="asset/css/products.css">
+<link rel="stylesheet" href="asset/css/product.css">
 
 
 <link rel="stylesheet"
@@ -106,7 +106,7 @@ Customers
 
 <li class="active">
 
-<a href="products.php">
+<a href="product.php">
 
 <i class="fa-solid fa-box"></i>
 
@@ -293,7 +293,7 @@ Manage your business products
 
 
 
-<a href="add-product.php" class="add-btn">
+<a href="addproduct.php" class="add-btn">
 
 
 <i class="fa-solid fa-plus"></i>
@@ -436,7 +436,7 @@ while($product=mysqli_fetch_assoc($productQuery)){
 
 
 <img 
-src="uploads/products/<?php echo $product['image']; ?>"
+src="uploads/<?php echo $product['image']; ?>"
 class="product-img">
 
 
@@ -614,7 +614,7 @@ Inactive
 
 
 
-<a href="view-product.php?id=<?php echo $product['id']; ?>"
+<a href="viewproduct.php?id=<?php echo $product['id']; ?>"
 class="view">
 
 
@@ -625,7 +625,7 @@ class="view">
 
 
 
-<a href="edit-product.php?id=<?php echo $product['id']; ?>"
+<a href="editproduct.php?id=<?php echo $product['id']; ?>"
 class="edit">
 
 
@@ -637,13 +637,9 @@ class="edit">
 
 
 <a href="../backend/product/delete.php?id=<?php echo $product['id']; ?>"
-class="delete"
-onclick="return confirm('Delete this product?')">
-
-
+onclick="return confirm('Delete this product?')"
+class="delete">
 <i class="fa-solid fa-trash"></i>
-
-
 </a>
 
 
@@ -837,7 +833,7 @@ if(!empty($product['image'])){
 ?>
 
 
-<img src="uploads/products/<?php echo $product['image']; ?>">
+<img src="uploads/<?php echo $product['image']; ?>">
 
 
 <?php
