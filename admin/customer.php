@@ -50,7 +50,7 @@ $query = mysqli_query($connection, "SELECT * FROM customer ORDER BY id DESC");
         <ul>
 
             <li>
-                <a href="index.php">
+                <a href="dash.php">
                     <i class="fa-solid fa-house"></i>
                     Dashboard
                 </a>
@@ -64,7 +64,7 @@ $query = mysqli_query($connection, "SELECT * FROM customer ORDER BY id DESC");
             </li>
 
             <li>
-                <a href="products.php">
+                <a href="product.php">
                     <i class="fa-solid fa-box"></i>
                     Products
                 </a>
