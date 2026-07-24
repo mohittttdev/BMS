@@ -891,3 +891,581 @@ tbody tr:last-child td{
     }
 
 }
+/*====================================
+  FOOTER
+====================================*/
+
+.footer{
+
+    margin-top:30px;
+
+    background:var(--card);
+
+    border-radius:var(--radius);
+
+    padding:18px 25px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+
+}
+
+.footer p{
+
+    color:var(--text-light);
+
+    font-size:14px;
+
+    font-weight:500;
+
+}
+
+/*====================================
+  LARGE TABLET
+====================================*/
+
+@media (max-width:1200px){
+
+    .sidebar{
+
+        width:240px;
+        min-width:240px;
+
+    }
+
+    .main{
+
+        margin-left:240px;
+        padding:25px;
+
+    }
+
+    .search-box{
+
+        width:260px;
+
+    }
+
+    .page-header h1{
+
+        font-size:26px;
+
+    }
+
+}
+
+/*====================================
+  TABLET
+====================================*/
+
+@media (max-width:992px){
+
+    .sidebar{
+
+        width:90px;
+        min-width:90px;
+
+        padding:20px 12px;
+
+    }
+
+    .logo{
+
+        justify-content:center;
+    }
+
+    .logo h2{
+
+        display:none;
+
+    }
+
+    .sidebar ul li a{
+
+        justify-content:center;
+
+        padding:15px;
+
+    }
+
+    .sidebar ul li a span{
+
+        display:none;
+
+    }
+
+    .sidebar ul li a i{
+
+        margin:0;
+        font-size:20px;
+
+    }
+
+    .main{
+
+        margin-left:90px;
+
+        padding:20px;
+
+    }
+
+    .topbar{
+
+        flex-direction:column;
+        align-items:flex-start;
+        gap:18px;
+
+        height:auto;
+
+    }
+
+    .top-right{
+
+        width:100%;
+        justify-content:space-between;
+        flex-wrap:wrap;
+
+    }
+
+    .search-box{
+
+        width:100%;
+
+    }
+
+    .page-header{
+
+        flex-direction:column;
+        align-items:flex-start;
+
+        gap:20px;
+
+    }
+
+    .add-btn{
+
+        width:100%;
+        justify-content:center;
+
+    }
+
+}
+
+/*====================================
+  MOBILE
+====================================*/
+
+@media (max-width:768px){
+
+    .sidebar{
+
+        position:fixed;
+
+        left:-100%;
+
+        width:260px;
+
+        transition:.4s;
+
+        z-index:9999;
+
+    }
+
+    .sidebar.active{
+
+        left:0;
+
+    }
+
+    .logo h2{
+
+        display:block;
+
+    }
+
+    .sidebar ul li a{
+
+        justify-content:flex-start;
+
+    }
+
+    .main{
+
+        margin-left:0;
+
+        padding:15px;
+
+    }
+
+    .topbar{
+
+        padding:18px;
+
+    }
+
+    .topbar h2{
+
+        font-size:22px;
+
+    }
+
+    .page-header{
+
+        padding:20px;
+
+    }
+
+    .page-header h1{
+
+        font-size:24px;
+
+    }
+
+    .page-header p{
+
+        font-size:14px;
+
+    }
+
+    .profile span{
+
+        display:none;
+
+    }
+
+    .table-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:12px;
+
+    }
+
+    table{
+
+        min-width:900px;
+
+    }
+
+}
+
+/*====================================
+  SMALL MOBILE
+====================================*/
+
+@media (max-width:480px){
+
+    .main{
+
+        padding:12px;
+
+    }
+
+    .topbar{
+
+        padding:15px;
+
+    }
+
+    .topbar h2{
+
+        font-size:20px;
+
+    }
+
+    .search-box{
+
+        height:45px;
+
+    }
+
+    .page-header{
+
+        padding:18px;
+
+    }
+
+    .page-header h1{
+
+        font-size:22px;
+
+    }
+
+    .add-btn{
+
+        padding:12px 18px;
+
+        font-size:14px;
+
+    }
+
+    .table-header{
+
+        padding:18px;
+
+    }
+
+    .footer{
+
+        padding:15px;
+
+    }
+
+    .footer p{
+
+        font-size:13px;
+
+    }
+
+}
+/*====================================
+  SMOOTH TRANSITIONS
+====================================*/
+
+*,
+*::before,
+*::after{
+    transition:
+        background-color .3s ease,
+        color .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease,
+        transform .3s ease;
+}
+
+/*====================================
+  CARD HOVER
+====================================*/
+
+.topbar:hover,
+.page-header:hover,
+.table-card:hover,
+.footer:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.10);
+
+}
+
+/*====================================
+  TABLE ROW ANIMATION
+====================================*/
+
+tbody tr{
+
+    animation:tableFade .5s ease both;
+
+}
+
+tbody tr:nth-child(1){animation-delay:.05s;}
+tbody tr:nth-child(2){animation-delay:.10s;}
+tbody tr:nth-child(3){animation-delay:.15s;}
+tbody tr:nth-child(4){animation-delay:.20s;}
+tbody tr:nth-child(5){animation-delay:.25s;}
+tbody tr:nth-child(6){animation-delay:.30s;}
+
+@keyframes tableFade{
+
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/*====================================
+  BUTTON CLICK EFFECT
+====================================*/
+
+.add-btn:active,
+.action-btns a:active{
+
+    transform:scale(.94);
+
+}
+
+/*====================================
+  ICON ROTATION
+====================================*/
+
+.action-btns a i{
+
+    transition:.35s ease;
+
+}
+
+.action-btns a:hover i{
+
+    transform:rotate(12deg) scale(1.15);
+
+}
+
+/*====================================
+  SEARCH ICON
+====================================*/
+
+.search-box:hover i{
+
+    color:var(--primary);
+
+}
+
+/*====================================
+  PROFILE EFFECT
+====================================*/
+
+.profile:hover i{
+
+    transform:rotate(10deg) scale(1.08);
+
+}
+
+/*====================================
+  ACTIVE SIDEBAR ITEM
+====================================*/
+
+.sidebar ul li.active{
+
+    position:relative;
+
+}
+
+.sidebar ul li.active::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:10%;
+
+    width:5px;
+    height:80%;
+
+    border-radius:10px;
+
+    background:#fff;
+
+}
+
+/*====================================
+  SCROLLBAR
+====================================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+    height:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#edf2f7;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--primary);
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--primary-dark);
+
+}
+
+/*====================================
+  SELECTION
+====================================*/
+
+::selection{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
+
+/*====================================
+  INPUT PLACEHOLDER
+====================================*/
+
+input::placeholder{
+
+    color:#9ca3af;
+
+}
+
+/*====================================
+  IMAGE ANIMATION
+====================================*/
+
+.profile i{
+
+    animation:profilePulse 3s infinite;
+
+}
+
+@keyframes profilePulse{
+
+    0%{
+        box-shadow:0 0 0 0 rgba(34,197,94,.45);
+    }
+
+    70%{
+        box-shadow:0 0 0 12px rgba(34,197,94,0);
+    }
+
+    100%{
+        box-shadow:0 0 0 0 rgba(34,197,94,0);
+    }
+
+}
+
+/*====================================
+  FOCUS STYLE
+====================================*/
+
+button:focus,
+input:focus,
+a:focus{
+
+    outline:none;
+
+}
+
+/*====================================
+  REDUCE MOTION
+====================================*/
+
+@media (prefers-reduced-motion:reduce){
+
+*{
+
+animation:none !important;
+
+transition:none !important;
+
+scroll-behavior:auto !important;
+
+}
+
+}
+
+/*====================================
+  END
+====================================*/

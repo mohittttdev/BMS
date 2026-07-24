@@ -185,7 +185,7 @@ $query = mysqli_query($connection, "SELECT * FROM customer ORDER BY id DESC");
 
             </div>
 
-            <a href="add-customer.php" class="add-btn">
+            <a href="addcustomer.php" class="add-btn">
 
                 <i class="fa-solid fa-plus"></i>
 
