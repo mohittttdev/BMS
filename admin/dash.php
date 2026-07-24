@@ -273,7 +273,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
 <li class="active">
 
-<a href="index.php">
+<a href="dash.php">
 
 <i class="fa-solid fa-house"></i>
 
@@ -1564,20 +1564,10 @@ responsive:true
 
 
 
+<script>
 const chartMonths = <?php echo json_encode($months); ?>;
-
 const chartTotals = <?php echo json_encode($totals); ?>;
-
-
-
-<script src="asset/js/dash.js"></script>
-
 </script>
-
-
-
-
-
 
 <script src="asset/js/dash.js"></script>
 
