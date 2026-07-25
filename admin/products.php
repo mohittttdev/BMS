@@ -91,7 +91,7 @@ Dashboard
 
 <li>
 
-<a href="customer.php">
+<a href="customers.php">
 
 <i class="fa-solid fa-users"></i>
 
@@ -106,7 +106,7 @@ Customers
 
 <li class="active">
 
-<a href="product.php">
+<a href="products.php">
 
 <i class="fa-solid fa-box"></i>
 
@@ -248,14 +248,28 @@ Products Management
 
 <div class="profile">
 
-<i class="fa-solid fa-user-circle"></i>
+
+<img src="assets/images/admin.png">
 
 
-<span>
+<div>
+
+
+<h4>
 
 <?php echo $_SESSION['admin_name']; ?>
 
-</span>
+</h4>
+
+
+<p>
+
+Administrator
+
+</p>
+
+
+</div>
 
 
 </div>
@@ -293,7 +307,7 @@ Manage your business products
 
 
 
-<a href="addproduct.php" class="add-btn">
+<a href="add-product.php" class="add-btn">
 
 
 <i class="fa-solid fa-plus"></i>
@@ -1166,20 +1180,10 @@ Total Stock
 
 
 <footer class="footer">
-
-
-<p>
-
-© <?php echo date("Y"); ?>
-
-Business Management System |
-
-Developed with ❤️ PHP & MySQL
-
-
-</p>
-
-
+    <p>
+        © <?php echo date("Y"); ?>
+        Business Management System | Developed in PHP & MySQL
+    </p>
 </footer>
 
 

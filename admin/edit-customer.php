@@ -265,13 +265,28 @@ Logout
 
 <div class="profile">
 
-<i class="fa-solid fa-user-circle"></i>
 
-<span>
+<img src="assets/images/admin.png">
+
+
+<div>
+
+
+<h4>
 
 <?php echo $_SESSION['admin_name']; ?>
 
-</span>
+</h4>
+
+
+<p>
+
+Administrator
+
+</p>
+
+
+</div>
 
 
 </div>
@@ -815,17 +830,10 @@ required>
 
 
 <footer class="footer">
-
-<p>
-
-© <?php echo date("Y"); ?>
-
-Business Management System |
-
-PHP & MySQL
-
-</p>
-
+    <p>
+        © <?php echo date("Y"); ?>
+        Business Management System | Developed in PHP & MySQL
+    </p>
 </footer>
 
 

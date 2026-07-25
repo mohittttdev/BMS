@@ -13,8 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (menuToggle && sidebar) {
 
-        menuToggle.addEventListener("click", () => {
+        menuToggle.addEventListener("click", (e) => {
 
+            e.stopPropagation();
             sidebar.classList.toggle("active");
 
         });
@@ -58,6 +59,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             item.classList.add("active");
 
+            if (window.innerWidth <= 992) {
+
+                sidebar.classList.remove("active");
+
+            }
+
         });
 
     });
@@ -78,7 +85,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const text = item.innerText.toLowerCase();
 
-                item.style.display = text.includes(value) ? "block" : "none";
+                item.style.display = text.includes(value)
+                    ? "block"
+                    : "none";
 
             });
 
@@ -132,9 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (clock) {
 
-            const now = new Date();
-
-            clock.innerHTML = now.toLocaleTimeString();
+            clock.innerHTML = new Date().toLocaleTimeString();
 
         }
 
@@ -154,9 +161,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const target = Number(counter.innerText);
 
+        if (isNaN(target)) return;
+
         let count = 0;
 
         const speed = Math.max(1, Math.ceil(target / 50));
+
+        counter.innerText = "0";
 
         function animate() {
 
@@ -174,71 +185,58 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
-        if (!isNaN(target)) {
-
-            counter.innerText = "0";
-
-            animate();
-
-        }
+        animate();
 
     });
 
 });
 
+
 /*=========================================
-    Chart.js
+    Dynamic Sales Chart
 =========================================*/
 
-const chartCanvas = document.getElementById("salesChart");
+const ctx = document.getElementById("salesChart");
 
-if (chartCanvas) {
+if (
+    ctx &&
+    typeof chartMonths !== "undefined" &&
+    typeof chartTotals !== "undefined"
+) {
 
-    new Chart(chartCanvas, {
+    new Chart(ctx, {
 
         type: "line",
 
         data: {
 
-            labels: [
-
-                "Jan",
-                "Feb",
-                "Mar",
-                "Apr",
-                "May",
-                "Jun"
-
-            ],
+            labels: chartMonths,
 
             datasets: [{
 
                 label: "Sales",
 
-                data: [
+                data: chartTotals,
 
-                    12000,
-                    18000,
-                    15000,
-                    22000,
-                    26000,
-                    30000
+                borderColor: "#22c55e",
 
-                ],
-
-                borderColor: "#2563eb",
-
-                backgroundColor: "rgba(37,99,235,.15)",
-
-                fill: true,
-
-                tension: .4,
+                backgroundColor: "rgba(34,197,94,0.15)",
 
                 borderWidth: 3,
 
+                fill: true,
+
+                tension: 0.4,
+
                 pointRadius: 5,
 
-                pointHoverRadius: 8
+                pointHoverRadius: 8,
+
+                pointBackgroundColor: "#22c55e",
+
+                pointBorderColor: "#ffffff",
+
+                pointBorderWidth: 2
 
             }]
 
@@ -289,51 +287,5 @@ if (chartCanvas) {
         }
 
     });
-
-}
-
-const ctx = document.getElementById("salesChart");
-
-if(ctx){
-
-new Chart(ctx,{
-
-type:"line",
-
-data:{
-
-labels: chartMonths,
-
-datasets:[{
-
-label:"Sales",
-
-data: chartTotals,
-
-borderWidth:3,
-
-fill:true,
-
-tension:.4
-
-}]
-
-},
-
-options:{
-
-responsive:true,
-
-plugins:{
-
-legend:{
-display:false
-}
-
-}
-
-}
-
-});
 
 }

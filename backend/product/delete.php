@@ -63,7 +63,7 @@ if(isset($_GET['id'])){
     if($delete){
 
 
-        header("Location: ../../admin/product.php");
+        header("Location: ../../admin/products.php");
 
         exit();
 
@@ -82,7 +82,7 @@ if(isset($_GET['id'])){
 }else{
 
 
-    header("Location: ../../admin/product.php");
+    header("Location: ../../admin/products.php");
 
     exit();
 

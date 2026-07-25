@@ -39,7 +39,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
 
 
-            header("Location: ../admin/dash.php");
+            header("Location: ../admin/index.php");
 
             exit();
 

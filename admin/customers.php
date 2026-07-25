@@ -155,17 +155,33 @@ $query = mysqli_query($connection, "SELECT * FROM customer ORDER BY id DESC");
 
                 </div>
 
-                <div class="profile">
+              <div class="profile">
 
-                    <i class="fa-solid fa-user-circle"></i>
 
-                    <span>
+<img src="assets/images/admin.png">
 
-                        <?php echo $_SESSION['admin_name']; ?>
 
-                    </span>
+<div>
 
-                </div>
+
+<h4>
+
+<?php echo $_SESSION['admin_name']; ?>
+
+</h4>
+
+
+<p>
+
+Administrator
+
+</p>
+
+
+</div>
+
+
+</div>
 
             </div>
 
@@ -355,17 +371,12 @@ if(mysqli_num_rows($query) > 0){
 
         <!-- Footer -->
 
-        <footer class="footer">
-
-            <p>
-
-                © <?php echo date("Y"); ?>
-
-                Business Management System
-
-            </p>
-
-        </footer>
+      <footer class="footer">
+    <p>
+        © <?php echo date("Y"); ?>
+        Business Management System | Developed in PHP & MySQL
+    </p>
+</footer>
 
     </main>
 

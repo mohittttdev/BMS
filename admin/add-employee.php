@@ -51,6 +51,15 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
 
 
+<!-- Sidebar -->
+
+
+<button class="menu-toggle">
+
+<i class="fa-solid fa-bars"></i>
+
+</button>
+
 <div class="container">
     <!-- Sidebar -->
 
@@ -91,7 +100,7 @@ Dashboard
 
 <li>
 
-<a href="customer.php">
+<a href="customers.php">
 
 <i class="fa-solid fa-users"></i>
 
@@ -275,14 +284,27 @@ Add Employee
 <div class="profile">
 
 
-<i class="fa-solid fa-user-circle"></i>
+<img src="assets/images/admin.png">
 
 
-<span>
+<div>
+
+
+<h4>
 
 <?php echo $_SESSION['admin_name']; ?>
 
-</span>
+</h4>
+
+
+<p>
+
+Administrator
+
+</p>
+
+
+</div>
 
 
 </div>
@@ -298,33 +320,8 @@ Add Employee
 
 
 
-<section class="form-card">
-
-
-
-<div class="page-header">
-
-
-<div>
-
-
-<h1>
-
-Add New Employee
-
-</h1>
-
-
-<p>
-
-Enter employee details
-
-</p>
-
-
-</div>
-
-
+<div class="card-header">
+    <h3>Employee Information</h3>
 </div>
 
 
@@ -560,21 +557,10 @@ Cancel
 
 
 <footer class="footer">
-
-
-<p>
-
-
-© <?php echo date("Y"); ?>
-
-Business Management System |
-
-Developed with ❤️ PHP & MySQL
-
-
-</p>
-
-
+    <p>
+        © <?php echo date("Y"); ?>
+        Business Management System | Developed in PHP & MySQL
+    </p>
 </footer>
 
 

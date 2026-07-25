@@ -338,14 +338,27 @@ Edit Purchase
 <div class="profile">
 
 
-<i class="fa-solid fa-user-circle"></i>
+<img src="assets/images/admin.png">
 
 
-<span>
+<div>
+
+
+<h4>
 
 <?php echo $_SESSION['admin_name']; ?>
 
-</span>
+</h4>
+
+
+<p>
+
+Administrator
+
+</p>
+
+
+</div>
 
 
 </div>
@@ -946,21 +959,10 @@ Cancel
 
 
 <footer class="footer">
-
-
-<p>
-
-
-© <?php echo date("Y"); ?>
-
-Business Management System |
-
-Developed with ❤️ PHP & MySQL
-
-
-</p>
-
-
+    <p>
+        © <?php echo date("Y"); ?>
+        Business Management System | Developed in PHP & MySQL
+    </p>
 </footer>
 
 

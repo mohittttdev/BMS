@@ -241,14 +241,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 <div class="container">
 
 
-<!-- Sidebar -->
 
-
-<button class="menu-toggle">
-
-<i class="fa-solid fa-bars"></i>
-
-</button>
 
 
 
@@ -453,7 +446,14 @@ Logout
 
 
 
+<!-- Sidebar -->
 
+
+<button class="menu-toggle">
+
+<i class="fa-solid fa-bars"></i>
+
+</button>
 
 
 
@@ -1412,21 +1412,10 @@ Reports
 
 
 <footer class="footer">
-
-
-<p>
-
-
-© <?php echo date("Y"); ?>
-
-Business Management System |
-
-Developed with ❤️ PHP & MySQL
-
-
-</p>
-
-
+    <p>
+        © <?php echo date("Y"); ?>
+        Business Management System | Developed in PHP & MySQL
+    </p>
 </footer>
 
 
@@ -1448,128 +1437,90 @@ Developed with ❤️ PHP & MySQL
 
 
 
-
 <!-- Chart Script -->
-
 
 <script>
 
-
 const ctx = document.getElementById('salesChart');
-
-
 
 new Chart(ctx, {
 
+    type: 'line',
 
-type: 'line',
+    data: {
 
+        labels: [
+            "Jan","Feb","Mar","Apr","May","Jun",
+            "Jul","Aug","Sep","Oct","Nov","Dec"
+        ],
 
+        datasets: [{
 
-data: {
+            label: "Sales",
 
+            data: [
 
+                <?php
 
-labels:[
+                $data = [];
 
-"Jan",
-"Feb",
-"Mar",
-"Apr",
-"May",
-"Jun",
-"Jul",
-"Aug",
-"Sep",
-"Oct",
-"Nov",
-"Dec"
+                while($chart = mysqli_fetch_assoc($chartSales)){
 
-],
+                    $data[$chart['month']] = $chart['amount'];
 
+                }
 
+                for($i = 1; $i <= 12; $i++){
 
+                    echo isset($data[$i]) ? $data[$i] : 0;
 
+                    if($i < 12){
+                        echo ",";
+                    }
 
-datasets:[{
+                }
 
+                ?>
 
-label:"Sales",
+            ],
 
-data:[
+            borderColor: "#22c55e",
+            backgroundColor: "rgba(34,197,94,.15)",
+            borderWidth: 3,
+            tension: .4,
+            fill: true
 
-<?php
+        }]
 
+    },
 
-$data=[];
+    options: {
 
+        responsive: true,
 
-while($chart=mysqli_fetch_assoc($chartSales)){
+        maintainAspectRatio: false,
 
+        plugins: {
 
-$data[$chart['month']]=$chart['amount'];
+            legend: {
 
+                display: true
 
-}
+            }
 
+        }
 
-
-for($i=1;$i<=12;$i++){
-
-
-echo isset($data[$i]) ? $data[$i] : 0;
-
-
-if($i<12){
-
-echo ",";
-
-}
-
-
-}
-
-
-
-?>
-
-
-],
-
-
-
-borderWidth:2
-
-
-}]
-
-
-},
-
-
-
-
-options:{
-
-
-responsive:true
-
-
-}
-
-
+    }
 
 });
 
 
-
-
-<script>
 const chartMonths = <?php echo json_encode($months); ?>;
 const chartTotals = <?php echo json_encode($totals); ?>;
+
 </script>
 
-<script src="asset/js/dash.js"></script>
+<script src="asset/js/index.js"></script>
 
 
 </body>

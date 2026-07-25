@@ -45,7 +45,14 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 <div class="container">
 
 
+  <!-- Sidebar -->
 
+
+<button class="menu-toggle">
+
+<i class="fa-solid fa-bars"></i>
+
+</button>
 <!-- Sidebar -->
 
 <aside class="sidebar">
@@ -220,14 +227,27 @@ Add New Product
 <div class="profile">
 
 
-<i class="fa-solid fa-user-circle"></i>
+<img src="assets/images/admin.png">
 
 
-<span>
+<div>
+
+
+<h4>
 
 <?php echo $_SESSION['admin_name']; ?>
 
-</span>
+</h4>
+
+
+<p>
+
+Administrator
+
+</p>
+
+
+</div>
 
 
 </div>
@@ -636,7 +656,7 @@ Save Product
 
 
 
-<a href="product.php" class="cancel-btn">
+<a href="products.php" class="cancel-btn">
 
 
 <i class="fa-solid fa-xmark"></i>
@@ -666,21 +686,10 @@ Cancel
 
 
 <footer class="footer">
-
-
-<p>
-
-
-© <?php echo date("Y"); ?>
-
-Business Management System |
-
-Developed with ❤️ PHP & MySQL
-
-
-</p>
-
-
+    <p>
+        © <?php echo date("Y"); ?>
+        Business Management System | Developed in PHP & MySQL
+    </p>
 </footer>
 
 

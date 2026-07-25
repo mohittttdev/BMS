@@ -28,6 +28,15 @@ include("../backend/connection.php");
 
 <body>
 
+<!-- Sidebar -->
+
+
+<button class="menu-toggle">
+
+<i class="fa-solid fa-bars"></i>
+
+</button>
+
 <div class="container">
 
     <!-- Sidebar -->
@@ -52,14 +61,14 @@ include("../backend/connection.php");
             </li>
 
             <li class="active">
-                <a href="customer.php">
+                <a href="customers.php">
                     <i class="fa-solid fa-users"></i>
                     Customers
                 </a>
             </li>
 
             <li>
-                <a href="product.php">
+                <a href="products.php">
                     <i class="fa-solid fa-box"></i>
                     Products
                 </a>
@@ -135,13 +144,33 @@ include("../backend/connection.php");
 
             <h2>Add New Customer</h2>
 
-            <div class="profile">
+           <div class="profile">
 
-                <i class="fa-solid fa-user-circle"></i>
 
-                <span><?php echo $_SESSION['admin_name']; ?></span>
+<img src="assets/images/admin.png">
 
-            </div>
+
+<div>
+
+
+<h4>
+
+<?php echo $_SESSION['admin_name']; ?>
+
+</h4>
+
+
+<p>
+
+Administrator
+
+</p>
+
+
+</div>
+
+
+</div>
 
         </header>
 
@@ -475,18 +504,12 @@ include("../backend/connection.php");
 
         <!-- Footer -->
 
-        <footer class="footer">
-
-            <p>
-
-                © <?php echo date("Y"); ?>
-
-                Business Management System |
-                Developed in PHP & MySQL
-
-            </p>
-
-        </footer>
+       <footer class="footer">
+    <p>
+        © <?php echo date("Y"); ?>
+        Business Management System | Developed in PHP & MySQL
+    </p>
+</footer>
 
     </main>
 
