@@ -699,25 +699,15 @@ Stock Report
 
 <?php
 
-
 $stockReport = mysqli_query(
-
-$connection,
-
-"SELECT name,stock 
-
-FROM products
-
-ORDER BY stock ASC
-
-LIMIT 5"
-
+    $connection,
+    "SELECT product_name, stock_quantity
+     FROM products
+     ORDER BY stock_quantity ASC
+     LIMIT 5"
 );
 
-
-
-while($stock=mysqli_fetch_assoc($stockReport)){
-
+while($stock = mysqli_fetch_assoc($stockReport)){
 
 ?>
 
@@ -733,19 +723,12 @@ while($stock=mysqli_fetch_assoc($stockReport)){
 
 
 <h4>
-
-<?php echo $stock['name']; ?>
-
+<?php echo htmlspecialchars($stock['product_name']); ?>
 </h4>
 
-
 <small>
-
 Stock :
-
-<?php echo $stock['stock']; ?>
-
-
+<?php echo $stock['stock_quantity']; ?>
 </small>
 
 
@@ -863,37 +846,19 @@ Date
 
 <?php
 
-
 $reportSales = mysqli_query(
-
-$connection,
-
-"SELECT 
-
-sales.invoice_no,
-
-sales.total_amount,
-
-sales.status,
-
-sales.sale_date,
-
-customer.name AS customer_name
-
-
-FROM sales
-
-
-LEFT JOIN customer
-
-
-ON sales.customer_id = customer.id
-
-
-ORDER BY sales.id DESC
-
-
-LIMIT 10"
+    $connection,
+    "SELECT
+        sales.invoice_no,
+        sales.total_amount,
+        sales.status,
+        sales.sale_date,
+        customer.customer_name AS customer_name
+    FROM sales
+    LEFT JOIN customer
+        ON sales.customer_id = customer.id
+    ORDER BY sales.id DESC
+    LIMIT 10"
 
 );
 

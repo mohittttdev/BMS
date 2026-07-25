@@ -19,27 +19,14 @@ include("../backend/connection.php");
 
 
 $sales = mysqli_query(
-
     $connection,
-
-    "SELECT 
-
-    sales.*,
-
-    customers.name AS customer_name
-
-
+    "SELECT
+        sales.*,
+        customer.customer_name AS customer_name
     FROM sales
-
-
-    LEFT JOIN customers
-
-
-    ON sales.customer_id = customers.id
-
-
+    LEFT JOIN customer
+        ON sales.customer_id = customer.id
     ORDER BY sales.id DESC"
-
 );
 
 
