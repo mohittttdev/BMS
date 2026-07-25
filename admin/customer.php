@@ -39,7 +39,7 @@ $query = mysqli_query($connection, "SELECT * FROM customer ORDER BY id DESC");
 
     <aside class="sidebar">
 
-        <div class="logo">
+        <div class="logoes">
 
             <i class="fa-solid fa-chart-line"></i>
 
@@ -50,7 +50,7 @@ $query = mysqli_query($connection, "SELECT * FROM customer ORDER BY id DESC");
         <ul>
 
             <li>
-                <a href="index.php">
+                <a href="dash.php">
                     <i class="fa-solid fa-house"></i>
                     Dashboard
                 </a>
@@ -185,7 +185,7 @@ $query = mysqli_query($connection, "SELECT * FROM customer ORDER BY id DESC");
 
             </div>
 
-            <a href="add-customer.php" class="add-btn">
+            <a href="addcustomer.php" class="add-btn">
 
                 <i class="fa-solid fa-plus"></i>
 
