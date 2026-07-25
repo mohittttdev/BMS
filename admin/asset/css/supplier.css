@@ -11,32 +11,22 @@ Google Font
 }
 
 :root{
-
     --primary:#16a34a;
     --primary-dark:#15803d;
     --primary-light:#dcfce7;
-
     --white:#ffffff;
-    --bg:#f7faf7;
-
+    --bg:#f5fdf7;
     --text:#1f2937;
     --gray:#6b7280;
-
     --border:#d1fae5;
-
     --danger:#ef4444;
-
-    --shadow:0 12px 30px rgba(0,0,0,.08);
-
-    --radius:18px;
-
+    --shadow:0 10px 25px rgba(0,0,0,.08);
+    --radius:16px;
 }
 
 body{
-
     background:var(--bg);
     color:var(--text);
-
 }
 
 a{
@@ -52,10 +42,8 @@ Container
 ==============================*/
 
 .container{
-
     display:flex;
     min-height:100vh;
-
 }
 
 /*==============================
@@ -63,81 +51,55 @@ Sidebar
 ==============================*/
 
 .sidebar{
-
     width:260px;
     background:#fff;
     position:fixed;
     left:0;
     top:0;
-    height:100vh;
-    overflow:auto;
-
-    border-right:1px solid var(--border);
-
+    height:100%;
     padding:25px;
-
+    border-right:1px solid var(--border);
+    overflow:auto;
 }
 
 .logo{
-
     display:flex;
     align-items:center;
     gap:12px;
-
     color:var(--primary);
-
     margin-bottom:35px;
-
 }
 
 .logo i{
-
-    font-size:32px;
-
+    font-size:30px;
 }
 
 .logo h2{
-
     font-size:28px;
-
 }
 
 .sidebar li{
-
     margin-bottom:10px;
-
 }
 
 .sidebar a{
-
     display:flex;
     align-items:center;
     gap:14px;
-
     color:#4b5563;
-
     padding:14px 18px;
-
     border-radius:12px;
-
     transition:.3s;
-
 }
 
 .sidebar a:hover,
 .sidebar .active a{
-
     background:var(--primary);
-
     color:#fff;
-
 }
 
 .sidebar i{
-
     width:22px;
-    text-align:center;
-
 }
 
 /*==============================
@@ -145,13 +107,9 @@ Main
 ==============================*/
 
 .main{
-
-    width:calc(100% - 260px);
-
     margin-left:260px;
-
+    width:calc(100% - 260px);
     padding:30px;
-
 }
 
 /*==============================
@@ -159,30 +117,22 @@ Topbar
 ==============================*/
 
 .topbar{
-
     display:flex;
     justify-content:space-between;
     align-items:center;
-
     margin-bottom:30px;
-
 }
 
 .profile{
-
     display:flex;
     align-items:center;
     gap:10px;
-
     font-weight:600;
-
 }
 
 .profile i{
-
+    font-size:34px;
     color:var(--primary);
-    font-size:32px;
-
 }
 
 /*==============================
@@ -190,47 +140,31 @@ Page Header
 ==============================*/
 
 .page-header{
-
     display:flex;
     justify-content:space-between;
     align-items:center;
-
     margin-bottom:25px;
-
 }
 
 .page-header p{
-
     color:var(--gray);
-
     margin-top:5px;
-
 }
 
 .add-btn{
-
     background:var(--primary);
-
     color:#fff;
-
-    padding:14px 24px;
-
+    padding:14px 22px;
     border-radius:12px;
-
     display:flex;
     align-items:center;
     gap:10px;
-
     transition:.3s;
-
 }
 
 .add-btn:hover{
-
     background:var(--primary-dark);
-
     transform:translateY(-2px);
-
 }
 
 /*==============================
@@ -238,37 +172,25 @@ Search Box
 ==============================*/
 
 .search-box{
-
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:50px;
+    padding:12px 18px;
     display:flex;
     align-items:center;
-
-    background:#fff;
-
-    border:1px solid var(--border);
-
-    border-radius:50px;
-
-    padding:10px 18px;
-
+    margin-bottom:25px;
 }
 
 .search-box input{
-
+    width:100%;
     border:none;
     outline:none;
-
-    width:240px;
-
-    padding-left:10px;
-
     background:none;
-
+    padding-right:10px;
 }
 
 .search-box i{
-
     color:var(--primary);
-
 }
 
 /*==============================
@@ -276,76 +198,199 @@ Table Card
 ==============================*/
 
 .table-card{
-
     background:#fff;
-
-    border-radius:18px;
-
+    border-radius:var(--radius);
     box-shadow:var(--shadow);
-
-    overflow:hidden;
-
-}
-
-.table-header{
-
-    padding:20px 25px;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    border-bottom:1px solid var(--border);
-
-}
-
-.table-responsive{
-
     overflow-x:auto;
-
 }
 
 table{
-
     width:100%;
     border-collapse:collapse;
-
+    min-width:900px;
 }
 
 thead{
-
     background:var(--primary);
-
     color:#fff;
-
 }
 
 thead th{
-
     padding:16px;
-
     text-align:left;
-
-    white-space:nowrap;
-
 }
 
 tbody td{
-
     padding:16px;
-
-    border-bottom:1px solid #eef2f7;
-
+    border-bottom:1px solid #edf2f7;
 }
 
 tbody tr{
-
     transition:.3s;
-
 }
 
 tbody tr:hover{
-
     background:#f0fdf4;
+}
+
+/*==============================
+Status Badge
+==============================*/
+
+.badge{
+    padding:6px 14px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.badge.active{
+    background:#dcfce7;
+    color:#15803d;
+}
+
+.badge.inactive{
+    background:#fee2e2;
+    color:#dc2626;
+}
+
+/*==============================
+Action Buttons
+==============================*/
+
+.view-btn,
+.edit-btn,
+.delete-btn{
+    width:38px;
+    height:38px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:10px;
+    color:#fff;
+    margin-right:6px;
+    transition:.3s;
+}
+
+.view-btn{
+    background:#16a34a;
+}
+
+.edit-btn{
+    background:#2563eb;
+}
+
+.delete-btn{
+    background:#ef4444;
+}
+
+.view-btn:hover,
+.edit-btn:hover,
+.delete-btn:hover{
+    transform:translateY(-3px);
+}
+
+/*==============================
+Footer
+==============================*/
+
+.footer{
+    text-align:center;
+    padding:25px 0;
+    color:#6b7280;
+}
+
+/*==============================
+Scrollbar
+==============================*/
+
+::-webkit-scrollbar{
+    width:8px;
+    height:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:var(--primary);
+    border-radius:20px;
+}
+
+/*==============================
+Responsive
+==============================*/
+
+@media(max-width:992px){
+
+.sidebar{
+    width:220px;
+}
+
+.main{
+    margin-left:220px;
+    width:calc(100% - 220px);
+}
+
+}
+
+@media(max-width:768px){
+
+.sidebar{
+    position:relative;
+    width:100%;
+    height:auto;
+}
+
+.container{
+    flex-direction:column;
+}
+
+.main{
+    margin-left:0;
+    width:100%;
+    padding:20px;
+}
+
+.topbar,
+.page-header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:15px;
+}
+
+.add-btn{
+    width:100%;
+    justify-content:center;
+}
+
+.search-box{
+    width:100%;
+}
+
+table{
+    min-width:800px;
+}
+
+}
+
+@media(max-width:480px){
+
+.main{
+    padding:15px;
+}
+
+.logo h2{
+    font-size:22px;
+}
+
+.topbar h2{
+    font-size:24px;
+}
+
+.page-header h1{
+    font-size:26px;
+}
+
+.search-box{
+    padding:10px 15px;
+}
 
 }

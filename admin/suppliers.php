@@ -43,7 +43,7 @@ $suppliers = mysqli_query(
 
 
 
-<link rel="stylesheet" href="asset/css/suppliers.css">
+<link rel="stylesheet" href="asset/css/supplier.css">
 
 
 <link rel="stylesheet"
