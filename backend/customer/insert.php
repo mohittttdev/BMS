@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Duplicate Check
     $check = mysqli_query(
         $connection,
-        "SELECT id FROM customers 
+        "SELECT id FROM customer 
          WHERE email='$email' OR phone='$phone'"
     );
 
@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Insert Customer
     $insert = mysqli_query($connection, "
-        INSERT INTO customers(
+        INSERT INTO customer(
             customer_code,
             customer_name,
             company_name,

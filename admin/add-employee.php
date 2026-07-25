@@ -324,7 +324,7 @@ Administrator
 
 
 
-<form action="../backend/employee/insert.php" method="POST">
+<form action="../backend/employeeS/insert.php" method="POST">
 
 
 

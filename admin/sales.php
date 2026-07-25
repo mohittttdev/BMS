@@ -2,7 +2,6 @@
 
 session_start();
 
-
 if(!isset($_SESSION['admin_id'])){
 
     header("Location: login.php");
@@ -10,13 +9,10 @@ if(!isset($_SESSION['admin_id'])){
 
 }
 
-
 include("../backend/connection.php");
 
 
-
-// Fetch Sales
-
+// Fetch Sales Data
 
 $sales = mysqli_query(
     $connection,
@@ -28,7 +24,6 @@ $sales = mysqli_query(
         ON sales.customer_id = customer.id
     ORDER BY sales.id DESC"
 );
-
 
 ?>
 

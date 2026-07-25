@@ -78,7 +78,7 @@ if(!$employee){
 
 
 
-<link rel="stylesheet" href="asset/css/view-employees.css">
+<link rel="stylesheet" href="asset/css/view-employee.css">
 
 
 
@@ -512,8 +512,8 @@ Joining Date
 <p>
 
 <?php echo date(
-"d M Y",
-strtotime($employee['joining_date'])
+    "d M Y",
+    strtotime($employee['joining_data'])
 ); ?>
 
 </p>

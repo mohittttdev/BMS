@@ -18,13 +18,8 @@ include("../backend/connection.php");
 // Fetch Suppliers
 
 $suppliers = mysqli_query(
-
     $connection,
-
-    "SELECT * FROM suppliers 
-     WHERE status='Active'
-     ORDER BY name ASC"
-
+    "SELECT * FROM suppliers ORDER BY name ASC"
 );
 
 
@@ -340,27 +335,19 @@ Add products purchased from supplier
 
 <!-- Supplier -->
 
-
 <div class="input-group">
 
-
 <label>
-
 Select Supplier
-
 </label>
-
 
 
 <select name="supplier_id" required>
 
 
 <option value="">
-
 Choose Supplier
-
 </option>
-
 
 
 <?php while($sup = mysqli_fetch_assoc($suppliers)){ ?>
@@ -368,12 +355,9 @@ Choose Supplier
 
 <option value="<?php echo $sup['id']; ?>">
 
-
 <?php echo $sup['name']; ?>
 
-
 </option>
-
 
 
 <?php } ?>
@@ -381,12 +365,7 @@ Choose Supplier
 
 </select>
 
-
-
 </div>
-
-
-
 
 
 

@@ -28,7 +28,10 @@ if(isset($_POST['product_name'])){
 
     $gst = $_POST['gst'];
 
-    $description = $_POST['description'];
+   $description = mysqli_real_escape_string(
+    $connection,
+    $_POST['description']
+);
 
     $status = $_POST['status'];
 

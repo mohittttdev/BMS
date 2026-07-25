@@ -450,7 +450,7 @@ while($product=mysqli_fetch_assoc($productQuery)){
 
 
 <img 
-src="uploads/<?php echo $product['image']; ?>"
+src="uploads/products/<?php echo $product['image']; ?>"
 class="product-img">
 
 
@@ -628,7 +628,7 @@ Inactive
 
 
 
-<a href="viewproduct.php?id=<?php echo $product['id']; ?>"
+<a href="view-product.php?id=<?php echo $product['id']; ?>"
 class="view">
 
 

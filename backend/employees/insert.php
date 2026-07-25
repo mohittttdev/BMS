@@ -3,26 +3,16 @@
 include("../connection.php");
 
 
-
 if(isset($_POST['name'])){
 
 
-
-    $name = $_POST['name'];
-
-    $email = $_POST['email'];
-
-    $phone = $_POST['phone'];
-
-    $address = $_POST['address'];
-
-    $salary = $_POST['salary'];
-
-    $joining_date = $_POST['joining_date'];
-
-    $status = $_POST['status'];
-
-
+    $name = mysqli_real_escape_string($connection, $_POST['name']);
+    $email = mysqli_real_escape_string($connection, $_POST['email']);
+    $phone = mysqli_real_escape_string($connection, $_POST['phone']);
+    $address = mysqli_real_escape_string($connection, $_POST['address']);
+    $salary = mysqli_real_escape_string($connection, $_POST['salary']);
+    $joining_data = mysqli_real_escape_string($connection, $_POST['joining_data']);
+    $status = mysqli_real_escape_string($connection, $_POST['status']);
 
 
 
@@ -30,102 +20,62 @@ if(isset($_POST['name'])){
 
         $connection,
 
-
         "INSERT INTO employees
-
         (
-
-        name,
-
-        email,
-
-        phone,
-
-        address,
-
-        salary,
-
-        joining_date,
-
-        status
-
+            name,
+            email,
+            phone,
+            address,
+            salary,
+            joining_data,
+            status
         )
-
 
         VALUES
 
-
         (
-
-        '$name',
-
-        '$email',
-
-        '$phone',
-
-        '$address',
-
-        '$salary',
-
-        '$joining_date',
-
-        '$status'
-
+            '$name',
+            '$email',
+            '$phone',
+            '$address',
+            '$salary',
+            '$joining_data',
+            '$status'
         )"
 
     );
 
 
 
-
-
-
-
     if($query){
 
 
-        header(
-
-        "Location: ../../admin/employees.php"
-
-        );
-
+        header("Location: ../../admin/employees.php");
 
         exit();
 
 
-
     }
-
     else{
 
 
-        echo "Employee Insert Failed";
+        die("Employee Insert Failed : ".mysqli_error($connection));
+
 
     }
-
-
-
 
 
 
 }
-
 else{
 
 
-    header(
-
-    "Location: ../../admin/add-employee.php"
-
-    );
-
+    header("Location: ../../admin/add-employee.php");
 
     exit();
 
 
 }
-
 
 
 ?>

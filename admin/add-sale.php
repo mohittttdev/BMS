@@ -18,16 +18,33 @@ include("../backend/connection.php");
 
 // Fetch Customers
 
-
 $customers = mysqli_query(
 
     $connection,
 
-    "SELECT * FROM customers
+    "SELECT * FROM customer
      WHERE status='Active'
-     ORDER BY name ASC"
+     ORDER BY customer_name ASC"
 
 );
+
+
+
+
+// Fetch Products
+
+$products = mysqli_query(
+
+    $connection,
+
+    "SELECT * FROM products
+     WHERE status='Active'
+     ORDER BY product_name ASC"
+
+);
+
+
+
 
 
 
@@ -68,7 +85,7 @@ $products = mysqli_query(
 
 
 
-<link rel="stylesheet" href="asset/css/add-sale.css">
+<link rel="stylesheet" href="asset/css/add-sales.css">
 
 
 <link rel="stylesheet"
@@ -393,7 +410,7 @@ Choose Customer
 <option value="<?php echo $cus['id']; ?>">
 
 
-<?php echo $cus['name']; ?>
+<?php echo $cus['customer_name']; ?>
 
 
 </option>
