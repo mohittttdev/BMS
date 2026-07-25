@@ -94,7 +94,7 @@ Customers
 
 <li class="active">
 
-<a href="products.php">
+<a href="product.php">
 
 <i class="fa-solid fa-box"></i>
 

@@ -35,7 +35,7 @@ include("../backend/connection.php");
 
 
 
-<link rel="stylesheet" href="asset/css/employees.css">
+<link rel="stylesheet" href="asset/css/add-employee.css">
 
 
 
@@ -91,7 +91,7 @@ Dashboard
 
 <li>
 
-<a href="customers.php">
+<a href="customer.php">
 
 <i class="fa-solid fa-users"></i>
 

@@ -50,21 +50,21 @@ $query = mysqli_query($connection, "SELECT * FROM customer ORDER BY id DESC");
         <ul>
 
             <li>
-                <a href="dash.php">
+                <a href="index.php">
                     <i class="fa-solid fa-house"></i>
                     Dashboard
                 </a>
             </li>
 
             <li class="active">
-                <a href="customer.php">
+                <a href="customers.php">
                     <i class="fa-solid fa-users"></i>
                     Customers
                 </a>
             </li>
 
             <li>
-                <a href="product.php">
+                <a href="products.php">
                     <i class="fa-solid fa-box"></i>
                     Products
                 </a>
@@ -185,7 +185,7 @@ $query = mysqli_query($connection, "SELECT * FROM customer ORDER BY id DESC");
 
             </div>
 
-            <a href="addcustomer.php" class="add-btn">
+            <a href="add-customer.php" class="add-btn">
 
                 <i class="fa-solid fa-plus"></i>
 

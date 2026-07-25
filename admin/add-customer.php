@@ -59,7 +59,7 @@ include("../backend/connection.php");
             </li>
 
             <li>
-                <a href="products.php">
+                <a href="product.php">
                     <i class="fa-solid fa-box"></i>
                     Products
                 </a>

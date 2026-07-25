@@ -222,7 +222,7 @@ $chartSales = mysqli_query(
 <title>BMS Admin Dashboard</title>
 
 
-<link rel="stylesheet" href="asset/css/dash.css">
+<link rel="stylesheet" href="asset/css/index.css">
 
 
 <link rel="stylesheet"
@@ -273,7 +273,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
 <li class="active">
 
-<a href="dash.php">
+<a href="index.php">
 
 <i class="fa-solid fa-house"></i>
 
@@ -288,7 +288,7 @@ Dashboard
 
 <li>
 
-<a href="customer.php">
+<a href="customers.php">
 
 <i class="fa-solid fa-users"></i>
 
@@ -304,7 +304,7 @@ Customers
 
 <li>
 
-<a href="product.php">
+<a href="products.php">
 
 <i class="fa-solid fa-box"></i>
 
