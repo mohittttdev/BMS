@@ -54,7 +54,7 @@ $customer = mysqli_fetch_assoc($result);
 <title>Edit Customer | BMS</title>
 
 
-<link rel="stylesheet" href="asset/css/addcustomer.css">
+<link rel="stylesheet" href="asset/css/edit-customer.css">
 
 
 <link rel="stylesheet"

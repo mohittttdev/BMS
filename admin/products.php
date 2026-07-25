@@ -322,7 +322,7 @@ Add Product
 </section>
 <!-- Product Table Card -->
 
-<section class="table-card">
+<section class="table-cards">
 
 
 <div class="table-header">

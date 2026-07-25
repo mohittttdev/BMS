@@ -1,4 +1,5 @@
 
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 
@@ -23,12 +24,14 @@
 }
 
 
+
 body{
 
     background:var(--bg);
     color:var(--text);
 
 }
+
 
 
 .container{
@@ -39,19 +42,19 @@ body{
 }
 
 
-/* =========================
+/* =====================
         SIDEBAR
-========================= */
+===================== */
 
 
 .sidebar{
 
     width:260px;
-    background:white;
-    height:100vh;
-    position:fixed;
+    background:#ffffff;
     padding:20px;
-    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    box-shadow:0 0 20px rgba(0,0,0,.08);
+    position:fixed;
+    height:100vh;
 
 }
 
@@ -101,17 +104,16 @@ body{
 
 .sidebar ul li a{
 
+    text-decoration:none;
+    color:#374151;
     display:flex;
     align-items:center;
     gap:15px;
     padding:12px;
-    text-decoration:none;
-    color:#374151;
     border-radius:10px;
     transition:.3s;
 
 }
-
 
 
 .sidebar ul li a:hover,
@@ -124,9 +126,17 @@ body{
 
 
 
-/* =========================
+.sidebar i{
+
+    width:20px;
+
+}
+
+
+
+/* =====================
         MAIN
-========================= */
+===================== */
 
 
 .main{
@@ -139,9 +149,9 @@ body{
 
 
 
-/* =========================
+/* =====================
         TOPBAR
-========================= */
+===================== */
 
 
 .topbar{
@@ -152,7 +162,15 @@ body{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    box-shadow:0 5px 15px rgba(0,0,0,.05);
+    box-shadow:0 5px 20px rgba(0,0,0,.05);
+
+}
+
+
+
+.topbar h2{
+
+    color:#111827;
 
 }
 
@@ -178,6 +196,7 @@ body{
 }
 
 
+
 .profile h4{
 
     font-size:15px;
@@ -194,34 +213,27 @@ body{
 
 
 
+/* =====================
+        PAGE TITLE
+===================== */
 
-/* =========================
-        PAGE HEADER
-========================= */
 
-
-.page-header{
+.page-title{
 
     margin:30px 0;
-    background:white;
-    padding:25px;
-    border-radius:15px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
 
 }
 
 
-
-.page-header h1{
+.page-title h1{
 
     font-size:28px;
+    color:#111827;
 
 }
 
 
-.page-header p{
+.page-title p{
 
     color:#6b7280;
     margin-top:5px;
@@ -230,27 +242,140 @@ body{
 
 
 
-/* ADD BUTTON */
 
 
-.add-btn{
+/* =====================
+        FORM CARD
+===================== */
 
-    background:var(--green);
-    color:white;
-    text-decoration:none;
-    padding:12px 22px;
-    border-radius:10px;
+
+.form-card{
+
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+
+}
+
+
+
+.form-grid{
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+
+}
+
+
+
+.input-group{
+
     display:flex;
-    align-items:center;
-    gap:8px;
+    flex-direction:column;
+
+}
+
+
+
+.input-group label{
+
+    font-size:14px;
     font-weight:600;
+    margin-bottom:8px;
+
+}
+
+
+
+.input-group input,
+.input-group select,
+.input-group textarea{
+
+    width:100%;
+    padding:13px 15px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    outline:none;
+    font-size:14px;
     transition:.3s;
 
 }
 
 
 
-.add-btn:hover{
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus{
+
+    border-color:var(--green);
+    box-shadow:0 0 0 3px var(--light-green);
+
+}
+
+
+
+.input-group textarea{
+
+    resize:none;
+
+}
+
+
+
+.full{
+
+    grid-column:1/-1;
+
+}
+
+
+
+
+/* =====================
+        BUTTONS
+===================== */
+
+
+.form-buttons{
+
+    display:flex;
+    gap:15px;
+    margin-top:30px;
+
+}
+
+
+
+.save-btn,
+.cancel-btn{
+
+    padding:12px 25px;
+    border-radius:10px;
+    border:none;
+    cursor:pointer;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:14px;
+    font-weight:600;
+
+}
+
+
+
+.save-btn{
+
+    background:var(--green);
+    color:white;
+
+}
+
+
+
+.save-btn:hover{
 
     background:var(--dark-green);
 
@@ -258,106 +383,7 @@ body{
 
 
 
-
-/* =========================
-        TABLE CARD
-========================= */
-
-
-.table-card{
-
-    background:white;
-    padding:25px;
-    border-radius:18px;
-    box-shadow:0 10px 25px rgba(0,0,0,.06);
-    overflow-x:auto;
-
-}
-
-
-
-.card-header{
-
-    margin-bottom:20px;
-
-}
-
-
-
-.card-header h3{
-
-    font-size:20px;
-
-}
-
-
-
-
-table{
-
-    width:100%;
-    border-collapse:collapse;
-
-}
-
-
-
-table th{
-
-    background:#f8fafc;
-    padding:15px;
-    text-align:left;
-    font-size:14px;
-
-}
-
-
-
-table td{
-
-    padding:14px;
-    border-bottom:1px solid var(--border);
-    font-size:14px;
-
-}
-
-
-
-tbody tr:hover{
-
-    background:#f9fafb;
-
-}
-
-
-
-
-/* =========================
-        STATUS BADGE
-========================= */
-
-
-.badge{
-
-    padding:6px 14px;
-    border-radius:20px;
-    font-size:12px;
-    font-weight:600;
-
-}
-
-
-
-.success{
-
-    background:#dcfce7;
-    color:#15803d;
-
-}
-
-
-
-.danger{
+.cancel-btn{
 
     background:#fee2e2;
     color:#dc2626;
@@ -366,69 +392,17 @@ tbody tr:hover{
 
 
 
-/* =========================
-        ACTION BUTTONS
-========================= */
+.cancel-btn:hover{
 
-
-.view-btn,
-.edit-btn,
-.delete-btn{
-
-    width:35px;
-    height:35px;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:8px;
-    text-decoration:none;
-    margin:3px;
+    background:#fecaca;
 
 }
 
 
 
-.view-btn{
-
-    background:#dbeafe;
-    color:#2563eb;
-
-}
-
-
-
-.edit-btn{
-
-    background:#dcfce7;
-    color:#16a34a;
-
-}
-
-
-
-.delete-btn{
-
-    background:#fee2e2;
-    color:#dc2626;
-
-}
-
-
-
-.view-btn:hover,
-.edit-btn:hover,
-.delete-btn:hover{
-
-    transform:translateY(-2px);
-
-}
-
-
-
-
-/* =========================
+/* =====================
         FOOTER
-========================= */
+===================== */
 
 
 .footer{
@@ -446,9 +420,10 @@ tbody tr:hover{
 
 
 
-/* =========================
+
+/* =====================
         RESPONSIVE
-========================= */
+===================== */
 
 
 @media(max-width:900px){
@@ -461,6 +436,7 @@ tbody tr:hover{
     height:auto;
 
 }
+
 
 
 .container{
@@ -491,19 +467,25 @@ tbody tr:hover{
 
 
 
-.page-header{
+.form-grid{
 
-    flex-direction:column;
-    gap:20px;
-    align-items:flex-start;
+    grid-template-columns:1fr;
 
 }
 
 
 
-table{
+.form-buttons{
 
-    min-width:900px;
+    flex-direction:column;
+
+}
+
+
+.save-btn,
+.cancel-btn{
+
+    justify-content:center;
 
 }
 

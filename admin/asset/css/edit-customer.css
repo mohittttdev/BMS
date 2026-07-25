@@ -1,6 +1,3 @@
-
-
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 
@@ -17,16 +14,12 @@
     --green:#16a34a;
     --dark-green:#15803d;
     --light-green:#dcfce7;
-
     --white:#ffffff;
-
     --bg:#f1f5f9;
-
     --text:#1f2937;
-
     --border:#e5e7eb;
 
-    --shadow:0 10px 30px rgba(0,0,0,0.08);
+    --shadow:0 10px 30px rgba(0,0,0,.08);
 
 }
 
@@ -35,6 +28,7 @@
 body{
 
     background:var(--bg);
+
     color:var(--text);
 
 }
@@ -43,37 +37,36 @@ body{
 
 .container{
 
-    display:flex;
     min-height:100vh;
+
+    display:flex;
 
 }
 
 
 
-/* ==========================
+/* =====================
         SIDEBAR
-========================== */
+===================== */
 
 
 .sidebar{
 
     width:260px;
 
-    background:white;
-
-    padding:25px 18px;
-
-    box-shadow:var(--shadow);
+    height:100vh;
 
     position:fixed;
-
-    height:100vh;
 
     left:0;
 
     top:0;
 
-    z-index:1000;
+    background:white;
+
+    padding:25px 18px;
+
+    box-shadow:var(--shadow);
 
 }
 
@@ -110,17 +103,12 @@ body{
 
     justify-content:center;
 
-    font-size:20px;
-
 }
-
 
 
 .logo h2{
 
     color:var(--green);
-
-    font-size:25px;
 
 }
 
@@ -134,7 +122,7 @@ body{
 
 
 
-.sidebar ul li{
+.sidebar li{
 
     margin:8px 0;
 
@@ -142,7 +130,7 @@ body{
 
 
 
-.sidebar ul li a{
+.sidebar a{
 
     text-decoration:none;
 
@@ -150,15 +138,13 @@ body{
 
     display:flex;
 
-    align-items:center;
-
     gap:15px;
 
-    padding:13px 15px;
+    align-items:center;
+
+    padding:13px;
 
     border-radius:10px;
-
-    font-size:15px;
 
     transition:.3s;
 
@@ -166,30 +152,21 @@ body{
 
 
 
-.sidebar ul li a i{
-
-    width:20px;
-
-}
-
-
-
-.sidebar ul li a:hover,
-.sidebar ul li.active a{
-
+.sidebar a:hover,
+.sidebar .active a{
 
     background:var(--green);
 
     color:white;
 
-
 }
 
 
 
-/* ==========================
+
+/* =====================
         MAIN
-========================== */
+===================== */
 
 
 .main{
@@ -198,9 +175,9 @@ body{
 
     width:calc(100% - 260px);
 
-    padding:25px;
-
     min-height:100vh;
+
+    padding:25px;
 
     display:flex;
 
@@ -208,6 +185,13 @@ body{
 
 }
 
+
+
+
+
+/* =====================
+        TOPBAR
+===================== */
 
 
 .topbar{
@@ -226,23 +210,9 @@ body{
 
     box-shadow:var(--shadow);
 
-    margin-bottom:25px;
-
 }
 
 
-
-.topbar h2{
-
-    color:#111827;
-
-    font-size:22px;
-
-}
-
-
-
-/* PROFILE */
 
 
 .profile{
@@ -254,6 +224,7 @@ body{
     gap:12px;
 
 }
+
 
 
 .profile img{
@@ -271,79 +242,35 @@ body{
 }
 
 
-.profile h4{
-
-    font-size:15px;
-
-}
-
-
 
 .profile p{
 
-    font-size:13px;
-
     color:#6b7280;
 
-}
-
-
-
-
-/* ==========================
-        ALERT
-========================== */
-
-
-.alert{
-
-    padding:15px;
-
-    border-radius:10px;
-
-    margin-bottom:20px;
-
-    font-weight:500;
+    font-size:13px;
 
 }
 
 
 
-.success{
-
-    background:#dcfce7;
-
-    color:#166534;
-
-}
 
 
-.error{
-
-    background:#fee2e2;
-
-    color:#991b1b;
-
-}
-
-
-
-/* ==========================
+/* =====================
         FORM CARD
-========================== */
+===================== */
 
 
 .form-card{
 
-
     background:white;
+
+    margin-top:25px;
+
+    padding:30px;
 
     border-radius:18px;
 
     box-shadow:var(--shadow);
-
-    overflow:hidden;
-
 
 }
 
@@ -351,10 +278,7 @@ body{
 
 .card-header{
 
-
-    padding:20px 25px;
-
-    border-bottom:1px solid var(--border);
+    margin-bottom:25px;
 
 }
 
@@ -364,22 +288,17 @@ body{
 
     color:var(--green);
 
-}
-
-
-
-
-form{
-
-    padding:25px;
+    font-size:22px;
 
 }
 
 
+
+
+/* FORM GRID */
 
 
 .form-grid{
-
 
     display:grid;
 
@@ -387,13 +306,11 @@ form{
 
     gap:20px;
 
-
 }
 
 
 
 .form-group{
-
 
     display:flex;
 
@@ -407,13 +324,12 @@ form{
 
 .form-group label{
 
-
     font-size:14px;
 
     font-weight:600;
 
-
 }
+
 
 
 
@@ -422,11 +338,9 @@ form{
 .form-group textarea{
 
 
-    width:100%;
-
     padding:12px 15px;
 
-    border:1px solid #d1d5db;
+    border:1px solid var(--border);
 
     border-radius:10px;
 
@@ -434,9 +348,16 @@ form{
 
     font-size:14px;
 
-    transition:.3s;
+}
+
+
+
+.form-group textarea{
+
+    resize:none;
 
 }
+
 
 
 
@@ -444,11 +365,9 @@ form{
 .form-group select:focus,
 .form-group textarea:focus{
 
-
     border-color:var(--green);
 
     box-shadow:0 0 0 3px var(--light-green);
-
 
 }
 
@@ -464,22 +383,18 @@ form{
 
 
 
-/* ==========================
+/* =====================
         BUTTONS
-========================== */
+===================== */
 
 
 .form-buttons{
 
+    margin-top:30px;
 
     display:flex;
 
     gap:15px;
-
-    margin-top:30px;
-
-    flex-wrap:wrap;
-
 
 }
 
@@ -488,18 +403,13 @@ form{
 .form-buttons button,
 .form-buttons a{
 
-
     padding:12px 22px;
-
-    border-radius:10px;
 
     border:none;
 
+    border-radius:10px;
+
     cursor:pointer;
-
-    text-decoration:none;
-
-    font-size:14px;
 
     display:flex;
 
@@ -507,19 +417,19 @@ form{
 
     gap:8px;
 
+    text-decoration:none;
+
 }
 
 
 
 .save-btn{
 
-
     background:var(--green);
 
     color:white;
 
 }
-
 
 
 .save-btn:hover{
@@ -532,9 +442,9 @@ form{
 
 .reset-btn{
 
-    background:#f3f4f6;
+    background:#f59e0b;
 
-    color:#374151;
+    color:white;
 
 }
 
@@ -542,7 +452,7 @@ form{
 
 .back-btn{
 
-    background:#111827;
+    background:#64748b;
 
     color:white;
 
@@ -552,13 +462,14 @@ form{
 
 
 
-/* ==========================
+/* =====================
         FOOTER
-========================== */
+===================== */
 
 
 .footer{
 
+    margin-top:auto;
 
     margin-top:25px;
 
@@ -566,24 +477,23 @@ form{
 
     padding:15px;
 
-    border-radius:12px;
-
     text-align:center;
+
+    border-radius:12px;
 
     color:#6b7280;
 
     font-size:14px;
-
 
 }
 
 
 
 
-/* ==========================
-        RESPONSIVE
-========================== */
 
+/* =====================
+        RESPONSIVE
+===================== */
 
 
 @media(max-width:900px){
@@ -591,20 +501,54 @@ form{
 
 .sidebar{
 
-
     width:220px;
 
+}
+
+
+
+.main{
+
+    margin-left:220px;
+
+    width:calc(100% - 220px);
+
+}
+
+
+}
+
+
+
+@media(max-width:700px){
+
+
+.sidebar{
+
+    display:none;
 
 }
 
 
 .main{
 
+    margin-left:0;
 
-    margin-left:220px;
+    width:100%;
 
-    width:calc(100% - 220px);
+    padding:15px;
 
+}
+
+
+
+.topbar{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:15px;
 
 }
 
@@ -617,84 +561,10 @@ form{
 }
 
 
-}
-
-
-
-
-@media(max-width:700px){
-
-
-
-.container{
-
-    display:block;
-
-}
-
-
-
-.sidebar{
-
-
-    transform:translateX(-100%);
-
-    transition:.3s;
-
-
-}
-
-
-
-.sidebar.active{
-
-
-    transform:translateX(0);
-
-
-}
-
-
-
-.main{
-
-
-    margin-left:0;
-
-    width:100%;
-
-    padding:15px;
-
-
-}
-
-
-
-.topbar{
-
-
-    flex-direction:column;
-
-    align-items:flex-start;
-
-    gap:15px;
-
-
-}
-
-
 
 .form-card{
 
-    border-radius:12px;
-
-}
-
-
-
-form{
-
-    padding:18px;
+    padding:20px;
 
 }
 
@@ -702,9 +572,7 @@ form{
 
 .form-buttons{
 
-
     flex-direction:column;
-
 
 }
 
@@ -713,46 +581,12 @@ form{
 .form-buttons button,
 .form-buttons a{
 
-
     width:100%;
 
     justify-content:center;
 
 }
 
-
-
-}
-
-
-
-
-
-@media(max-width:450px){
-
-
-.logo h2{
-
-    font-size:22px;
-
-}
-
-
-
-.topbar h2{
-
-    font-size:18px;
-
-}
-
-
-.profile img{
-
-    width:45px;
-
-    height:45px;
-
-}
 
 
 }

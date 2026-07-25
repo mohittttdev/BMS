@@ -54,12 +54,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 <!-- Sidebar -->
 
 
-<button class="menu-toggle">
-
-<i class="fa-solid fa-bars"></i>
-
-</button>
-
 <div class="container">
     <!-- Sidebar -->
 
@@ -543,7 +537,6 @@ Cancel
 
 
 
-</section>
 
 
 

@@ -28,14 +28,7 @@ include("../backend/connection.php");
 
 <body>
 
-<!-- Sidebar -->
 
-
-<button class="menu-toggle">
-
-<i class="fa-solid fa-bars"></i>
-
-</button>
 
 <div class="container">
 

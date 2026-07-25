@@ -64,7 +64,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $_SESSION['error']="Email or Phone already exists.";
 
 
-        header("Location: ../../admin/editcustomer.php?id=".$id);
+        header("Location: ../../admin/edit-customer.php?id=".$id);
 
         exit();
 
@@ -128,7 +128,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $_SESSION['success']="Customer updated successfully.";
 
 
-        header("Location: ../../admin/customer.php");
+        header("Location: ../../admin/customers.php");
 
         exit();
 
@@ -140,7 +140,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $_SESSION['error']="Failed to update customer.";
 
 
-        header("Location: ../../admin/editcustomer.php?id=".$id);
+        header("Location: ../../admin/edit-customer.php?id=".$id);
 
         exit();
 
@@ -152,7 +152,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }else{
 
 
-    header("Location: ../../admin/customer.php");
+    header("Location: ../../admin/customers.php");
 
     exit();
 

@@ -1,14 +1,10 @@
 
 
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+    font-family:'Segoe UI',sans-serif;
 }
 
 
@@ -17,104 +13,79 @@
     --green:#16a34a;
     --dark-green:#15803d;
     --light-green:#dcfce7;
-
-    --white:#fff;
-
+    --white:#ffffff;
     --bg:#f1f5f9;
-
-    --text:#1f2937;
-
-    --shadow:0 10px 30px rgba(0,0,0,.08);
+    --text:#1e293b;
+    --border:#e2e8f0;
 
 }
+
 
 
 body{
 
     background:var(--bg);
-
     color:var(--text);
 
 }
 
 
 
+/* =========================
+        LAYOUT
+========================= */
+
+
 .container{
 
     display:flex;
-
     min-height:100vh;
 
 }
 
 
 
-
-/* ==========================
+/* =========================
         SIDEBAR
-========================== */
+========================= */
 
 
 .sidebar{
 
     width:260px;
-
-    height:100vh;
-
+    background:#fff;
+    border-right:1px solid var(--border);
+    padding:20px;
     position:fixed;
-
-    left:0;
-
-    top:0;
-
-    background:white;
-
-    padding:25px 18px;
-
-    box-shadow:var(--shadow);
+    height:100vh;
+    overflow-y:auto;
 
 }
+
 
 
 .logo{
 
     display:flex;
-
     align-items:center;
-
     gap:12px;
-
-    margin-bottom:35px;
+    margin-bottom:30px;
 
 }
-
 
 
 .logo i{
 
-    width:45px;
-
-    height:45px;
-
-    background:var(--green);
-
-    color:white;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    border-radius:12px;
+    font-size:30px;
+    color:var(--green);
 
 }
-
 
 
 .logo h2{
 
     color:var(--green);
+    font-size:26px;
 
 }
 
@@ -139,20 +110,21 @@ body{
 .sidebar ul li a{
 
     text-decoration:none;
-
-    color:#374151;
-
-    padding:13px 15px;
-
+    color:#475569;
     display:flex;
-
     align-items:center;
-
     gap:15px;
-
+    padding:12px 15px;
     border-radius:10px;
-
     transition:.3s;
+
+}
+
+
+
+.sidebar ul li a i{
+
+    width:20px;
 
 }
 
@@ -161,58 +133,48 @@ body{
 .sidebar ul li a:hover,
 .sidebar ul li.active a{
 
-    background:var(--green);
-
-    color:white;
+    background:var(--light-green);
+    color:var(--green);
 
 }
 
 
 
 
-/* ==========================
+
+/* =========================
         MAIN
-========================== */
+========================= */
 
 
 .main{
 
     margin-left:260px;
-
     width:calc(100% - 260px);
-
     min-height:100vh;
-
-    padding:25px;
-
     display:flex;
-
     flex-direction:column;
+    padding:20px;
 
 }
 
 
 
-/* ==========================
+
+/* =========================
         TOPBAR
-========================== */
+========================= */
 
 
 .topbar{
 
-    background:white;
-
+    background:#fff;
     padding:18px 25px;
-
     border-radius:15px;
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
-    box-shadow:var(--shadow);
+    box-shadow:0 5px 20px rgba(0,0,0,.05);
 
 }
 
@@ -220,22 +182,17 @@ body{
 
 .topbar h2{
 
-    font-size:22px;
+    color:var(--text);
 
 }
 
 
 
 
-/* PROFILE */
-
-
 .profile{
 
     display:flex;
-
     align-items:center;
-
     gap:12px;
 
 }
@@ -244,15 +201,19 @@ body{
 
 .profile img{
 
-    width:50px;
-
-    height:50px;
-
+    width:45px;
+    height:45px;
     border-radius:50%;
-
     object-fit:cover;
+    border:2px solid var(--green);
 
-    border:3px solid var(--light-green);
+}
+
+
+
+.profile h4{
+
+    font-size:15px;
 
 }
 
@@ -260,17 +221,16 @@ body{
 
 .profile p{
 
-    color:#6b7280;
-
     font-size:13px;
+    color:#64748b;
 
 }
 
 
 
-/* ==========================
+/* =========================
         PAGE TITLE
-========================== */
+========================= */
 
 
 .page-title{
@@ -283,9 +243,8 @@ body{
 
 .page-title h1{
 
-    font-size:24px;
-
     color:var(--green);
+    font-size:28px;
 
 }
 
@@ -293,27 +252,24 @@ body{
 
 .page-title p{
 
-    color:#6b7280;
+    color:#64748b;
 
 }
 
 
 
 
-/* ==========================
+/* =========================
         FORM CARD
-========================== */
+========================= */
 
 
 .form-card{
 
     background:white;
-
-    padding:30px;
-
+    padding:25px;
     border-radius:18px;
-
-    box-shadow:var(--shadow);
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
 
 }
 
@@ -322,9 +278,7 @@ body{
 .form-grid{
 
     display:grid;
-
     grid-template-columns:repeat(2,1fr);
-
     gap:20px;
 
 }
@@ -334,10 +288,16 @@ body{
 .input-group{
 
     display:flex;
-
     flex-direction:column;
-
     gap:8px;
+
+}
+
+
+
+.input-group.full{
+
+    grid-column:1/-1;
 
 }
 
@@ -345,9 +305,8 @@ body{
 
 .input-group label{
 
-    font-size:14px;
-
     font-weight:600;
+    color:#334155;
 
 }
 
@@ -357,16 +316,13 @@ body{
 .input-group select,
 .input-group textarea{
 
-
-    padding:12px 15px;
-
-    border:1px solid #d1d5db;
-
+    width:100%;
+    padding:12px 14px;
+    border:1px solid var(--border);
     border-radius:10px;
-
     outline:none;
-
-    font-size:14px;
+    font-size:15px;
+    transition:.3s;
 
 }
 
@@ -384,59 +340,59 @@ body{
 .input-group select:focus,
 .input-group textarea:focus{
 
-
     border-color:var(--green);
-
     box-shadow:0 0 0 3px var(--light-green);
 
+}
+
+
+
+
+/* IMAGE */
+
+
+.product-preview{
+
+    margin-top:10px;
+    border-radius:12px;
+    object-fit:cover;
+    border:3px solid var(--light-green);
 
 }
 
 
 
-.full{
-
-    grid-column:1/-1;
-
-}
 
 
-
-/* ==========================
+/* =========================
         BUTTONS
-========================== */
+========================= */
 
 
 .form-buttons{
 
-    margin-top:30px;
-
     display:flex;
-
     gap:15px;
+    margin-top:25px;
+    flex-wrap:wrap;
 
 }
 
 
 
-.form-buttons button,
-.form-buttons a{
+.save-btn,
+.cancel-btn{
 
     padding:12px 25px;
-
     border-radius:10px;
-
     border:none;
-
-    text-decoration:none;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:8px;
-
     cursor:pointer;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:15px;
+    font-weight:600;
 
 }
 
@@ -445,7 +401,6 @@ body{
 .save-btn{
 
     background:var(--green);
-
     color:white;
 
 }
@@ -463,43 +418,46 @@ body{
 .cancel-btn{
 
     background:#ef4444;
-
     color:white;
 
 }
 
 
 
-/* ==========================
-        FOOTER FIX BOTTOM
-========================== */
+.cancel-btn:hover{
+
+    background:#dc2626;
+
+}
+
+
+
+
+
+/* =========================
+        FOOTER
+========================= */
 
 
 .footer{
 
     margin-top:auto;
-
-    margin-top:25px;
-
     background:white;
-
-    padding:15px;
-
+    padding:18px;
+    margin-top:30px;
     border-radius:12px;
-
     text-align:center;
-
-    color:#6b7280;
-
+    color:#64748b;
     font-size:14px;
 
 }
 
 
 
-/* ==========================
+
+/* =========================
         RESPONSIVE
-========================== */
+========================= */
 
 
 @media(max-width:900px){
@@ -507,16 +465,49 @@ body{
 
 .sidebar{
 
-    width:220px;
+    width:80px;
+    padding:15px;
 
 }
 
 
+
+.logo h2{
+
+    display:none;
+
+}
+
+
+
+.sidebar ul li a{
+
+    justify-content:center;
+
+}
+
+
+
+.sidebar ul li a{
+
+    font-size:0;
+
+}
+
+
+
+.sidebar ul li a i{
+
+    font-size:20px;
+
+}
+
+
+
 .main{
 
-    margin-left:220px;
-
-    width:calc(100% - 220px);
+    margin-left:80px;
+    width:calc(100% - 80px);
 
 }
 
@@ -533,13 +524,39 @@ body{
 
 
 
+@media(max-width:600px){
 
-@media(max-width:700px){
+
+.container{
+
+    display:block;
+
+}
+
 
 
 .sidebar{
 
-    transform:translateX(-100%);
+    position:relative;
+    width:100%;
+    height:auto;
+
+}
+
+
+
+.sidebar ul{
+
+    display:flex;
+    overflow-x:auto;
+
+}
+
+
+
+.sidebar ul li{
+
+    min-width:55px;
 
 }
 
@@ -548,10 +565,8 @@ body{
 .main{
 
     margin-left:0;
-
     width:100%;
-
-    padding:15px;
+    padding:12px;
 
 }
 
@@ -560,10 +575,8 @@ body{
 .topbar{
 
     flex-direction:column;
-
-    align-items:flex-start;
-
     gap:15px;
+    align-items:flex-start;
 
 }
 
@@ -571,7 +584,7 @@ body{
 
 .form-card{
 
-    padding:20px;
+    padding:15px;
 
 }
 
@@ -585,12 +598,19 @@ body{
 
 
 
-.form-buttons button,
-.form-buttons a{
+.save-btn,
+.cancel-btn{
 
     width:100%;
-
     justify-content:center;
+
+}
+
+
+
+.footer{
+
+    font-size:12px;
 
 }
 

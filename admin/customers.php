@@ -39,7 +39,7 @@ $query = mysqli_query($connection, "SELECT * FROM customer ORDER BY id DESC");
 
     <aside class="sidebar">
 
-        <div class="logoes">
+        <div class="logo">
 
             <i class="fa-solid fa-chart-line"></i>
 
