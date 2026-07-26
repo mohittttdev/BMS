@@ -34,28 +34,17 @@ $id = $_GET['id'];
 
 
 $saleQuery = mysqli_query(
-
     $connection,
-
-    "SELECT 
-
-    sales.*,
-
-    customers.name AS customer_name,
-    customers.phone,
-    customers.email
-
-
+    "SELECT
+        sales.*,
+        customer.customer_name AS customer_name,
+        customer.phone,
+        customer.email
     FROM sales
-
-
-    LEFT JOIN customers
-
-
-    ON sales.customer_id = customers.id
-
-
+    LEFT JOIN customer
+        ON sales.customer_id = customer.id
     WHERE sales.id='$id'"
+
 
 );
 

@@ -69,21 +69,17 @@ if(!$sale){
 
 
 
-// Customers
-
-
 $customers = mysqli_query(
 
     $connection,
 
-    "SELECT * FROM customers
+    "SELECT * FROM customer
 
      WHERE status='Active'
 
-     ORDER BY name ASC"
+     ORDER BY customer_name ASC"
 
 );
-
 
 
 
@@ -156,7 +152,7 @@ $items = mysqli_query(
 
 
 
-<link rel="stylesheet" href="asset/css/add-sale.css">
+<link rel="stylesheet" href="asset/css/edit-sale.css">
 
 
 
@@ -505,7 +501,7 @@ echo "selected";
 >
 
 
-<?php echo $cus['name']; ?>
+<?php echo $cus['customer_name']; ?>
 
 
 </option>

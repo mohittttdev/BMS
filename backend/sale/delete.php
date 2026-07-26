@@ -56,21 +56,17 @@ if(isset($_GET['id'])){
 
             // Return Stock Back
 
+$stock = mysqli_query(
 
-            $stock = mysqli_query(
+    $connection,
 
-                $connection,
+    "UPDATE products
 
+     SET stock_quantity = stock_quantity + $quantity
 
-                "UPDATE products
+     WHERE id='$product_id'"
 
-
-                 SET stock = stock + $quantity
-
-
-                 WHERE id='$product_id'"
-
-            );
+);
 
 
 

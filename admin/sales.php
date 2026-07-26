@@ -565,7 +565,7 @@ class="view-btn">
 
 
 
-<a href="editsale.php?id=<?php echo $row['id']; ?>" class="edit-btn">
+<a href="edit-sale.php?id=<?php echo $row['id']; ?>" class="edit-btn">
 <i class="fa-solid fa-pen"></i>
 </a>
 
