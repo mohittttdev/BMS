@@ -18,7 +18,7 @@ if(isset($_GET['id'])){
 
     $check = mysqli_query(
         $connection,
-        "SELECT id FROM customers WHERE id='$id'"
+        "SELECT id FROM customer WHERE id='$id'"
     );
 
 
@@ -39,7 +39,7 @@ if(isset($_GET['id'])){
 
     $delete = mysqli_query(
         $connection,
-        "DELETE FROM customers WHERE id='$id'"
+        "DELETE FROM customer WHERE id='$id'"
     );
 
 

@@ -1317,7 +1317,7 @@ Low Stock
 
 
 
-<a href="customer.php" class="action-card">
+<a href="customers.php" class="action-card">
 
 
 <i class="fa-solid fa-users"></i>

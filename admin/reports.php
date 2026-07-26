@@ -228,7 +228,7 @@ Dashboard
 
 <li>
 
-<a href="customer.php">
+<a href="customers.php">
 
 <i class="fa-solid fa-users"></i>
 

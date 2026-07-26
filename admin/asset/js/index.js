@@ -1,291 +1,577 @@
 /*=========================================
-    BMS Dashboard JS
+    BMS DASHBOARD JAVASCRIPT
 =========================================*/
 
-document.addEventListener("DOMContentLoaded", () => {
 
-    /*==============================
-        Sidebar Toggle
-    ==============================*/
+document.addEventListener("DOMContentLoaded",()=>{
 
-    const menuToggle = document.querySelector(".menu-toggle");
-    const sidebar = document.querySelector(".sidebar");
 
-    if (menuToggle && sidebar) {
+/*=========================================
+    SIDEBAR TOGGLE
+=========================================*/
 
-        menuToggle.addEventListener("click", (e) => {
 
-            e.stopPropagation();
-            sidebar.classList.toggle("active");
+const menuToggle = document.querySelector(".menu-toggle");
+const sidebar = document.querySelector(".sidebar");
 
-        });
 
-    }
+let overlay = document.querySelector(".overlay");
 
-    /*==============================
-        Close Sidebar Outside Click
-    ==============================*/
 
-    document.addEventListener("click", (e) => {
+if(!overlay){
 
-        if (window.innerWidth <= 992) {
+    overlay = document.createElement("div");
 
-            if (
-                sidebar &&
-                !sidebar.contains(e.target) &&
-                menuToggle &&
-                !menuToggle.contains(e.target)
-            ) {
+    overlay.className="overlay";
 
-                sidebar.classList.remove("active");
+    document.body.appendChild(overlay);
 
-            }
+}
 
-        }
 
-    });
 
-    /*==============================
-        Active Sidebar Link
-    ==============================*/
+function openSidebar(){
 
-    const links = document.querySelectorAll(".sidebar ul li");
+    sidebar.classList.add("active");
+    overlay.classList.add("show");
 
-    links.forEach(item => {
+}
 
-        item.addEventListener("click", () => {
 
-            links.forEach(li => li.classList.remove("active"));
 
-            item.classList.add("active");
+function closeSidebar(){
 
-            if (window.innerWidth <= 992) {
+    sidebar.classList.remove("active");
+    overlay.classList.remove("show");
 
-                sidebar.classList.remove("active");
+}
 
-            }
 
-        });
 
-    });
 
-    /*==============================
-        Search Filter
-    ==============================*/
+if(menuToggle){
 
-    const searchInput = document.querySelector(".search input");
+menuToggle.addEventListener("click",(e)=>{
 
-    if (searchInput) {
+    e.stopPropagation();
 
-        searchInput.addEventListener("keyup", function () {
+    sidebar.classList.contains("active")
+    ? closeSidebar()
+    : openSidebar();
 
-            const value = this.value.toLowerCase();
+});
 
-            document.querySelectorAll(".sidebar ul li").forEach(item => {
+}
 
-                const text = item.innerText.toLowerCase();
 
-                item.style.display = text.includes(value)
-                    ? "block"
-                    : "none";
 
-            });
 
-        });
+overlay.addEventListener("click",()=>{
 
-    }
-
-    /*==============================
-        Notification
-    ==============================*/
-
-    const notification = document.querySelector(".notification");
-
-    if (notification) {
-
-        notification.addEventListener("click", () => {
-
-            alert("No New Notifications");
-
-        });
-
-    }
-
-    /*==============================
-        Card Hover
-    ==============================*/
-
-    document.querySelectorAll(".card").forEach(card => {
-
-        card.addEventListener("mouseenter", () => {
-
-            card.style.transform = "translateY(-8px)";
-
-        });
-
-        card.addEventListener("mouseleave", () => {
-
-            card.style.transform = "translateY(0px)";
-
-        });
-
-    });
-
-    /*==============================
-        Current Time
-    ==============================*/
-
-    function updateTime() {
-
-        const clock = document.getElementById("clock");
-
-        if (clock) {
-
-            clock.innerHTML = new Date().toLocaleTimeString();
-
-        }
-
-    }
-
-    updateTime();
-
-    setInterval(updateTime, 1000);
-
-    /*==============================
-        Counter Animation
-    ==============================*/
-
-    const counters = document.querySelectorAll(".card h3");
-
-    counters.forEach(counter => {
-
-        const target = Number(counter.innerText);
-
-        if (isNaN(target)) return;
-
-        let count = 0;
-
-        const speed = Math.max(1, Math.ceil(target / 50));
-
-        counter.innerText = "0";
-
-        function animate() {
-
-            if (count < target) {
-
-                count += speed;
-
-                if (count > target) count = target;
-
-                counter.innerText = count;
-
-                requestAnimationFrame(animate);
-
-            }
-
-        }
-
-        animate();
-
-    });
+    closeSidebar();
 
 });
 
 
+
+
+
+/* ESC BUTTON CLOSE */
+
+
+document.addEventListener("keydown",(e)=>{
+
+    if(e.key==="Escape"){
+
+        closeSidebar();
+
+    }
+
+});
+
+
+
+
+
+/* WINDOW RESIZE */
+
+
+window.addEventListener("resize",()=>{
+
+
+if(window.innerWidth > 992){
+
+    closeSidebar();
+
+}
+
+
+});
+
+
+
+
+
 /*=========================================
-    Dynamic Sales Chart
+    ACTIVE MENU
 =========================================*/
 
-const ctx = document.getElementById("salesChart");
 
-if (
-    ctx &&
-    typeof chartMonths !== "undefined" &&
-    typeof chartTotals !== "undefined"
-) {
+const menuLinks=document.querySelectorAll(".sidebar ul li");
 
-    new Chart(ctx, {
 
-        type: "line",
+menuLinks.forEach(link=>{
 
-        data: {
 
-            labels: chartMonths,
+link.addEventListener("click",()=>{
 
-            datasets: [{
 
-                label: "Sales",
+menuLinks.forEach(item=>{
 
-                data: chartTotals,
+    item.classList.remove("active");
 
-                borderColor: "#22c55e",
+});
 
-                backgroundColor: "rgba(34,197,94,0.15)",
 
-                borderWidth: 3,
+link.classList.add("active");
 
-                fill: true,
 
-                tension: 0.4,
 
-                pointRadius: 5,
+if(window.innerWidth <=992){
 
-                pointHoverRadius: 8,
+    closeSidebar();
 
-                pointBackgroundColor: "#22c55e",
+}
 
-                pointBorderColor: "#ffffff",
 
-                pointBorderWidth: 2
 
-            }]
+});
 
-        },
 
-        options: {
+});
 
-            responsive: true,
 
-            maintainAspectRatio: false,
 
-            plugins: {
 
-                legend: {
 
-                    display: false
 
-                }
+/*=========================================
+    SEARCH FILTER
+=========================================*/
 
-            },
 
-            scales: {
+const search=document.querySelector(".search input");
 
-                y: {
 
-                    beginAtZero: true,
+if(search){
 
-                    grid: {
 
-                        color: "#e5e7eb"
+search.addEventListener("keyup",()=>{
 
-                    }
 
-                },
+let value=search.value.toLowerCase();
 
-                x: {
 
-                    grid: {
 
-                        display: false
+document.querySelectorAll(".sidebar li").forEach(item=>{
 
-                    }
 
-                }
+let text=item.innerText.toLowerCase();
 
-            }
 
-        }
 
-    });
+if(text.includes(value)){
+
+    item.style.display="block";
+
+}
+
+else{
+
+    item.style.display="none";
+
+}
+
+
+});
+
+
+});
+
+
+}
+
+
+
+
+
+
+/*=========================================
+    NOTIFICATION POPUP
+=========================================*/
+
+
+const notification=document.querySelector(".notification");
+
+
+if(notification){
+
+
+notification.addEventListener("click",()=>{
+
+
+let box=document.createElement("div");
+
+
+box.className="notify-box";
+
+
+box.innerHTML=`
+
+<h4>Notifications</h4>
+
+<p>✔ New sale created</p>
+
+<p>📦 Stock updated</p>
+
+<p>👤 New customer added</p>
+
+`;
+
+
+
+document.body.appendChild(box);
+
+
+
+setTimeout(()=>{
+
+box.classList.add("show");
+
+},100);
+
+
+
+setTimeout(()=>{
+
+box.remove();
+
+},4000);
+
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+
+/*=========================================
+    COUNTER ANIMATION
+=========================================*/
+
+
+const counters=document.querySelectorAll(".card h3");
+
+
+counters.forEach(counter=>{
+
+
+let target=parseInt(counter.innerText);
+
+
+
+if(isNaN(target)) return;
+
+
+
+let count=0;
+
+
+
+let speed=Math.ceil(target/60);
+
+
+
+function update(){
+
+
+if(count < target){
+
+
+count += speed;
+
+
+if(count > target){
+
+count=target;
+
+}
+
+
+counter.innerText=count;
+
+
+requestAnimationFrame(update);
+
+
+}
+
+
+}
+
+
+
+counter.innerText="0";
+
+update();
+
+
+
+});
+
+
+
+
+
+
+
+
+/*=========================================
+    SCROLL ANIMATION
+=========================================*/
+
+
+const elements=document.querySelectorAll(
+".card,.chart-card,.table-card,.activity-card,.action-card"
+);
+
+
+
+const observer=new IntersectionObserver((entries)=>{
+
+
+entries.forEach(entry=>{
+
+
+if(entry.isIntersecting){
+
+
+entry.target.classList.add("show");
+
+
+}
+
+
+});
+
+
+},
+{
+threshold:.15
+});
+
+
+
+elements.forEach(el=>{
+
+observer.observe(el);
+
+});
+
+
+
+
+
+});
+
+
+
+
+
+
+
+
+
+/*=========================================
+    SALES CHART
+=========================================*/
+
+
+const canvas=document.getElementById("salesChart");
+
+
+
+if(
+canvas &&
+typeof chartMonths !== "undefined" &&
+typeof chartTotals !== "undefined"
+){
+
+
+const ctx=canvas.getContext("2d");
+
+
+
+let gradient=ctx.createLinearGradient(
+0,
+0,
+0,
+300
+);
+
+
+
+gradient.addColorStop(
+0,
+"rgba(34,197,94,.35)"
+);
+
+
+
+gradient.addColorStop(
+1,
+"rgba(34,197,94,0)"
+);
+
+
+
+
+
+new Chart(canvas,{
+
+type:"line",
+
+
+data:{
+
+
+labels:chartMonths,
+
+
+datasets:[{
+
+label:"Sales",
+
+
+data:chartTotals,
+
+
+borderColor:"#16a34a",
+
+
+backgroundColor:gradient,
+
+
+fill:true,
+
+
+borderWidth:3,
+
+
+tension:.4,
+
+
+pointRadius:5,
+
+
+pointHoverRadius:8
+
+
+}]
+
+
+},
+
+
+
+options:{
+
+
+responsive:true,
+
+
+maintainAspectRatio:false,
+
+
+
+animation:{
+
+duration:1500
+
+},
+
+
+
+plugins:{
+
+
+legend:{
+
+
+display:false
+
+
+}
+
+
+},
+
+
+
+scales:{
+
+
+y:{
+
+
+beginAtZero:true,
+
+
+grid:{
+
+
+color:"#e5e7eb"
+
+
+}
+
+
+},
+
+
+
+x:{
+
+
+grid:{
+
+
+display:false
+
+
+}
+
+
+}
+
+
+}
+
+
+
+}
+
+
+
+});
+
+
 
 }

@@ -77,7 +77,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $update = mysqli_query($connection,
 
-    "UPDATE customers SET
+    "UPDATE customer SET
 
         customer_code='$customer_code',
 

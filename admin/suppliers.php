@@ -19,7 +19,7 @@ include("../backend/connection.php");
 
 $suppliers = mysqli_query(
     $connection,
-    "SELECT * FROM suppliers ORDER BY id DESC"
+    "SELECT * FROM suppliers ORDER BY id ASC"
 );
 
 

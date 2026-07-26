@@ -1,14 +1,13 @@
-
-
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 
 *{
+
     margin:0;
     padding:0;
     box-sizing:border-box;
     font-family:'Poppins',sans-serif;
+
 }
 
 
@@ -17,18 +16,14 @@
     --primary:#22c55e;
     --dark-green:#15803d;
     --light-green:#dcfce7;
-    --white:#ffffff;
     --bg:#f1f5f9;
+    --white:#ffffff;
     --text:#1e293b;
     --border:#e2e8f0;
 
 }
 
 
-
-/* =========================
-   BODY
-========================= */
 
 body{
 
@@ -53,7 +48,6 @@ body{
 
 
 
-
 /* =========================
    SIDEBAR
 ========================= */
@@ -62,14 +56,15 @@ body{
 .sidebar{
 
     width:260px;
+    height:100vh;
+    position:fixed;
+    top:0;
+    left:0;
     background:white;
     padding:25px 15px;
-    position:fixed;
-    height:100vh;
     box-shadow:0 5px 20px rgba(0,0,0,.08);
 
 }
-
 
 
 
@@ -87,10 +82,10 @@ body{
 
 .logo i{
 
-    background:var(--primary);
-    color:white;
     width:45px;
     height:45px;
+    background:var(--primary);
+    color:white;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -103,11 +98,10 @@ body{
 
 .logo h2{
 
-    font-size:25px;
     color:var(--dark-green);
+    font-size:25px;
 
 }
-
 
 
 
@@ -131,21 +125,12 @@ body{
 
     text-decoration:none;
     color:#475569;
-    display:flex;
-    align-items:center;
-    gap:15px;
     padding:13px 15px;
+    display:flex;
+    gap:15px;
+    align-items:center;
     border-radius:10px;
-    font-size:15px;
     transition:.3s;
-
-}
-
-
-
-.sidebar ul li a i{
-
-    width:20px;
 
 }
 
@@ -162,7 +147,6 @@ body{
 
 
 
-
 /* =========================
  MAIN
 ========================= */
@@ -175,6 +159,7 @@ body{
     padding:25px;
 
 }
+
 
 
 
@@ -234,7 +219,6 @@ body{
 }
 
 
-
 .profile p{
 
     font-size:13px;
@@ -272,7 +256,6 @@ body{
 .page-header p{
 
     color:#64748b;
-    margin-top:5px;
 
 }
 
@@ -294,9 +277,11 @@ body{
 }
 
 
+
 .add-btn:hover{
 
     background:var(--dark-green);
+    transform:translateY(-2px);
 
 }
 
@@ -344,8 +329,9 @@ body{
 
 
 
+
 /* =========================
- TABLE CARD
+ TABLE
 ========================= */
 
 
@@ -358,7 +344,6 @@ body{
     overflow-x:auto;
 
 }
-
 
 
 
@@ -400,11 +385,21 @@ td{
 
 
 
+tbody tr{
+
+    transition:.3s;
+
+}
+
+
+
 tbody tr:hover{
 
     background:#f8fafc;
+    transform:scale(1.01);
 
 }
+
 
 
 
@@ -424,7 +419,7 @@ tbody tr:hover{
 
 
 
-.active{
+.badge.active{
 
     background:#dcfce7;
     color:#15803d;
@@ -432,7 +427,8 @@ tbody tr:hover{
 }
 
 
-.inactive{
+
+.badge.inactive{
 
     background:#fee2e2;
     color:#dc2626;
@@ -443,7 +439,7 @@ tbody tr:hover{
 
 
 /* =========================
- ACTION BUTTONS
+ ACTION BUTTON
 ========================= */
 
 
@@ -457,9 +453,9 @@ tbody tr:hover{
     justify-content:center;
     align-items:center;
     border-radius:8px;
-    margin-right:5px;
     color:white;
-    text-decoration:none;
+    margin-right:5px;
+    transition:.3s;
 
 }
 
@@ -489,15 +485,13 @@ tbody tr:hover{
 
 
 
-
 .view-btn:hover,
 .edit-btn:hover,
 .delete-btn:hover{
 
-    transform:translateY(-2px);
+    transform:translateY(-3px);
 
 }
-
 
 
 
@@ -511,8 +505,8 @@ tbody tr:hover{
     margin-top:30px;
     background:white;
     padding:18px;
-    text-align:center;
     border-radius:12px;
+    text-align:center;
     color:#64748b;
     font-size:14px;
 
@@ -526,19 +520,7 @@ tbody tr:hover{
 ========================= */
 
 
-@media(max-width:900px){
-
-
-.sidebar{
-
-    width:80px;
-
-}
-
-
-
-.logo h2,
-.sidebar a{
+.menu-toggle{
 
     display:none;
 
@@ -546,10 +528,48 @@ tbody tr:hover{
 
 
 
+@media(max-width:992px){
+
+
+.sidebar{
+
+    left:-270px;
+    transition:.3s;
+    z-index:1000;
+
+}
+
+
+
+.sidebar.active{
+
+    left:0;
+
+}
+
+
+
 .main{
 
-    margin-left:80px;
-    width:calc(100% - 80px);
+    margin-left:0;
+    width:100%;
+    padding:20px;
+
+}
+
+
+
+.menu-toggle{
+
+    display:flex;
+
+}
+
+
+
+.topbar{
+
+    margin-top:50px;
 
 }
 
@@ -564,6 +584,7 @@ tbody tr:hover{
 }
 
 
+
 .search-box{
 
     width:100%;
@@ -572,6 +593,7 @@ tbody tr:hover{
 
 
 }
+
 
 
 
@@ -588,9 +610,32 @@ tbody tr:hover{
 
 .topbar{
 
-    flex-direction:column;
-    gap:15px;
-    align-items:flex-start;
+    padding:15px;
+
+}
+
+
+
+.profile div{
+
+    display:none;
+
+}
+
+
+
+.page-header h1{
+
+    font-size:22px;
+
+}
+
+
+
+.add-btn{
+
+    width:100%;
+    justify-content:center;
 
 }
 
@@ -603,9 +648,18 @@ tbody tr:hover{
 }
 
 
-th,td{
 
-    white-space:nowrap;
+table{
+
+    min-width:750px;
+
+}
+
+
+
+.footer{
+
+    font-size:12px;
 
 }
 
