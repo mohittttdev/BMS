@@ -69,7 +69,7 @@ if(!$product){
 
 
 
-<link rel="stylesheet" href="asset/css/add-product.css">
+<link rel="stylesheet" href="asset/css/edit-product.css">
 
 
 <link rel="stylesheet"

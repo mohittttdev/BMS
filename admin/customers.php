@@ -9,7 +9,7 @@ if (!isset($_SESSION['admin_id'])) {
 include("../backend/connection.php");
 
 /* Fetch Customers */
-$query = mysqli_query($connection, "SELECT * FROM customer ORDER BY id DESC");
+$query = mysqli_query($connection, "SELECT * FROM customer ORDER BY id ASC");
 ?>
 
 <!DOCTYPE html>

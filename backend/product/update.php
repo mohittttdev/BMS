@@ -8,29 +8,18 @@ if(isset($_POST['id'])){
 
     $id = $_POST['id'];
 
-    $product_code = $_POST['product_code'];
-
-    $product_name = $_POST['product_name'];
-
-    $category = $_POST['category'];
-
-    $brand = $_POST['brand'];
-
-    $supplier = $_POST['supplier'];
-
-    $purchase_price = $_POST['purchase_price'];
-
-    $selling_price = $_POST['selling_price'];
-
-    $stock_quantity = $_POST['stock_quantity'];
-
-    $unit = $_POST['unit'];
-
-    $gst = $_POST['gst'];
-
-    $description = $_POST['description'];
-
-    $status = $_POST['status'];
+$product_code = mysqli_real_escape_string($connection, $_POST['product_code']);
+$product_name = mysqli_real_escape_string($connection, $_POST['product_name']);
+$category = mysqli_real_escape_string($connection, $_POST['category']);
+$brand = mysqli_real_escape_string($connection, $_POST['brand']);
+$supplier = mysqli_real_escape_string($connection, $_POST['supplier']);
+$purchase_price = $_POST['purchase_price'];
+$selling_price = $_POST['selling_price'];
+$stock_quantity = $_POST['stock_quantity'];
+$unit = mysqli_real_escape_string($connection, $_POST['unit']);
+$gst = $_POST['gst'];
+$description = mysqli_real_escape_string($connection, $_POST['description']);
+$status = mysqli_real_escape_string($connection, $_POST['status']);
 
 
 
@@ -156,7 +145,7 @@ if(isset($_POST['id'])){
     if($update){
 
 
-        header("Location: ../../admin/product.php");
+        header("Location: ../../admin/products.php");
 
         exit();
 
