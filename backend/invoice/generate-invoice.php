@@ -3,9 +3,6 @@ include("../connection.php");
 
 require_once(__DIR__ . '/../../tcpdf/tcpdf.php');
 
-echo "TCPDF Loaded";
-exit();
-
 if (!isset($_GET['id'])) {
     die("Invoice ID Missing");
 }
@@ -18,24 +15,24 @@ $id = intval($_GET['id']);
 
 $query = mysqli_query($connection, "
 SELECT
-s.*,
-c.customer_name,
-c.company_name,
-c.phone,
-c.email,
-c.address,
-c.city,
-c.state,
-c.country,
-c.pincode,
-c.gst_number
+    s.*,
+    c.customer_name,
+    c.company_name,
+    c.phone,
+    c.email,
+    c.address,
+    c.city,
+    c.state,
+    c.country,
+    c.pincode,
+    c.gst_number
 FROM sales s
 LEFT JOIN customer c
 ON s.customer_id = c.id
 WHERE s.id='$id'
 ");
 
-if(mysqli_num_rows($query)==0){
+if (mysqli_num_rows($query) == 0) {
     die("Invoice Not Found");
 }
 
@@ -45,18 +42,18 @@ $sale = mysqli_fetch_assoc($query);
    Product Details
 ================================ */
 
-$items = mysqli_query($connection,"
+$items = mysqli_query($connection, "
 SELECT
-si.quantity,
-si.price,
-si.total,
-p.product_code,
-p.product_name,
-p.brand,
-p.unit
+    si.quantity,
+    si.price,
+    si.total,
+    p.product_code,
+    p.product_name,
+    p.brand,
+    p.unit
 FROM sale_items si
 LEFT JOIN products p
-ON si.product_id=p.id
+ON si.product_id = p.id
 WHERE si.sale_id='$id'
 ");
 
@@ -77,11 +74,11 @@ $pdf->SetCreator("Business Management System");
 $pdf->SetAuthor("BMS");
 $pdf->SetTitle("Sales Invoice");
 
-$pdf->SetMargins(15,15,15);
-
+$pdf->SetMargins(15, 15, 15);
 $pdf->AddPage();
 
-$pdf->SetFont('helvetica','',11);
+/* Rupee Symbol Support */
+$pdf->SetFont('dejavusans', '', 11);
 
 /* ===============================
    Invoice Header
