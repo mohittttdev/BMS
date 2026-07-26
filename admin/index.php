@@ -12,6 +12,24 @@ if (!isset($_SESSION['admin_id'])) {
 
 
 include("../backend/connection.php");
+/* ==========================
+   Activity Notifications
+========================== */
+
+$activityQuery = mysqli_query(
+    $connection,
+    "SELECT * FROM activity_logs
+     ORDER BY id DESC
+     LIMIT 5"
+);
+
+
+$activityCount = mysqli_num_rows(
+    mysqli_query(
+        $connection,
+        "SELECT id FROM activity_logs"
+    )
+);
 
 
 
@@ -512,11 +530,48 @@ placeholder="Search...">
 
 <div class="notification">
 
-
 <i class="fa-solid fa-bell"></i>
 
+<span>
+<?php echo $activityCount; ?>
+</span>
 
-<span>3</span>
+
+<div class="notification-box">
+
+
+<?php while($activity = mysqli_fetch_assoc($activityQuery)){ ?>
+
+
+<div class="notification-item">
+
+
+<h4>
+<?php echo $activity['module']; ?> 
+<?php echo $activity['action']; ?>
+</h4>
+
+
+<p>
+<?php echo $activity['message']; ?>
+</p>
+
+
+<small>
+<?php echo date(
+"d M Y h:i A",
+strtotime($activity['created_at'])
+); ?>
+</small>
+
+
+</div>
+
+
+<?php } ?>
+
+
+</div>
 
 
 </div>

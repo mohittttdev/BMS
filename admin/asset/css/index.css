@@ -220,7 +220,80 @@ body{
 
 }
 
+.notification{
+    position: relative;
+    cursor:pointer;
+}
 
+.notification > span{
+    position:absolute;
+    top:-8px;
+    right:-10px;
+    background:red;
+    color:white;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    font-size:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+
+.notification-box{
+
+    display:none;
+    position:absolute;
+    top:35px;
+    right:0;
+    width:320px;
+    background:white;
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+    border-radius:10px;
+    overflow:hidden;
+    z-index:999;
+
+}
+
+
+.notification:hover .notification-box{
+
+    display:block;
+
+}
+
+
+
+.notification-item{
+
+    padding:15px;
+    border-bottom:1px solid #eee;
+
+}
+
+
+.notification-item h4{
+
+    margin:0;
+    font-size:15px;
+
+}
+
+
+.notification-item p{
+
+    margin:5px 0;
+    font-size:13px;
+
+}
+
+
+.notification-item small{
+
+    color:#777;
+
+}
 
 .profile{
 

@@ -2,6 +2,7 @@
 session_start();
 
 include("../connection.php");
+include("../activity_log.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -83,14 +84,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         )
     ");
 
-    if ($insert) {
+ if($insert){
 
-        $_SESSION['success'] = "Customer added successfully.";
+    addActivity(
+        "Customer",
+        "Add",
+        "New customer ".$customer_name." added",
+        $_SESSION['admin_id']
+    );
 
-        header("Location: ../../admin/customers.php");
-        exit();
 
-    } else {
+    $_SESSION['success']="Customer added successfully.";
+
+    header("Location: ../../admin/customers.php");
+    exit();
+
+} else {
 
         $_SESSION['error'] = "Something went wrong.";
 
