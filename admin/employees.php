@@ -531,17 +531,12 @@ $row['salary'],
 
 
 <td>
-
-<?php echo date(
-
-"d M Y",
-
-strtotime($row['joining_date'])
-
-); ?>
-
+<?php
+echo !empty($row['joining_data'])
+    ? date("d M Y", strtotime($row['joining_data']))
+    : "-";
+?>
 </td>
-
 
 
 
@@ -624,7 +619,7 @@ class="edit-btn">
 
 
 
-<a href="../backend/employee/delete.php?id=<?php echo $row['id']; ?>"
+<a href="../backend/employees/delete.php?id=<?php echo $row['id']; ?>"
 class="delete-btn"
 onclick="return confirm('Delete Employee?')">
 

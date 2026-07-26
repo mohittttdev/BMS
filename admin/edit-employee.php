@@ -78,7 +78,7 @@ if(!$employee){
 
 
 
-<link rel="stylesheet" href="asset/css/employees.css">
+<link rel="stylesheet" href="asset/css/edit-employee.css">
 
 
 
@@ -389,7 +389,7 @@ Edit employee information
 
 
 
-<form action="../backend/employee/update.php" method="POST">
+<form action="../backend/employees/update.php" method="POST">
 
 
 
@@ -538,23 +538,16 @@ value="<?php echo $employee['salary']; ?>">
 
 <div class="input-group">
 
-
 <label>
 Joining Date
 </label>
 
-
 <input
-
 type="date"
-
-name="joining_date"
-
-value="<?php echo $employee['joining_date']; ?>">
-
+name="joining_data"
+value="<?php echo htmlspecialchars($employee['joining_data']); ?>">
 
 </div>
-
 
 
 

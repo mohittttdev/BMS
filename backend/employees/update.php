@@ -1,31 +1,16 @@
 <?php
-
 include("../connection.php");
-
-
 
 if(isset($_POST['id'])){
 
-
-
     $id = $_POST['id'];
-
     $name = $_POST['name'];
-
     $email = $_POST['email'];
-
     $phone = $_POST['phone'];
-
     $address = $_POST['address'];
-
     $salary = $_POST['salary'];
-
-    $joining_date = $_POST['joining_date'];
-
+    $joining_data = $_POST['joining_data'];
     $status = $_POST['status'];
-
-
-
 
 
 
@@ -48,7 +33,7 @@ if(isset($_POST['id'])){
 
         salary='$salary',
 
-        joining_date='$joining_date',
+      joining_data='$joining_data',
 
         status='$status'
 
