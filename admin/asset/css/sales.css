@@ -1213,81 +1213,45 @@ tbody td{
 ================================ */
 
 
-.action-buttons{
-
-    display:flex;
-
-    gap:8px;
-
-}
-
-
-
-
-
-.action-buttons a,
 .view-btn,
 .edit-btn,
 .delete-btn{
 
     width:35px;
-
     height:35px;
-
-    border-radius:10px;
-
-    display:flex;
-
-    align-items:center;
-
+    display:inline-flex;
     justify-content:center;
-
+    align-items:center;
+    border-radius:8px;
+    color:white;
+    margin-right:5px;
     transition:.3s;
 
-    font-size:14px;
+}
+
+
+
+.view-btn{
+
+    background:#3b82f6;
 
 }
 
 
 
+.edit-btn{
 
-
-.view-btn,
-.view{
-
-    background:#dbeafe;
-
-    color:#2563eb;
+    background:#f59e0b;
 
 }
 
 
 
+.delete-btn{
 
-
-.edit-btn,
-.edit{
-
-    background:#dcfce7;
-
-    color:#16a34a;
+    background:#ef4444;
 
 }
-
-
-
-
-
-.delete-btn,
-.delete{
-
-    background:#fee2e2;
-
-    color:#dc2626;
-
-}
-
-
 
 
 
@@ -1298,7 +1262,6 @@ tbody td{
     transform:translateY(-3px);
 
 }
-
 
 
 
